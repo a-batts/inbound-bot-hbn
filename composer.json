@@ -1,0 +1,14 @@
+{
+    "name": "alex-b/amy-bot-hbn",
+    "authors": [
+        {
+            "name": "Alex Batts",
+            "email": "alex.batts05@gmail.com"
+        }
+    ],
+    "require": {
+        "team-reflex/discord-php": "^6.0",
+        "react/event-loop": "^1.1",
+        "react/http": "^1.3"
+    }
+}
