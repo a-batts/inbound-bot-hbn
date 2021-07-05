@@ -20,7 +20,7 @@ $discord->on('message', function (Message $message, Discord $discord) {
     $message->reply("my name is annie \<3");
   elseif (str_contains(strtolower($message->content), 'stock'))
     $message->reply("hi {$message->author->nick} - inboundhealer");
-  elseif (strtolower($message->content) == 'a! clearchat' && $message->author->username == "pandacat#4724" || "batts🦇🦇#7933"){
+  elseif (strtolower($message->content) == 'a! clearchat' && $message->author->username == "pandacat#4724" || $message->author->username == "batts🦇🦇#7933"){
     $text = '.' . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL;
 
     $message->channel->sendMessage($text . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . PHP_EOL . '.', false);
