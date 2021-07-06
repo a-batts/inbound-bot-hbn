@@ -16,17 +16,18 @@ public class Warn extends ListenerAdapter {
         if (event.getMessage().getContentRaw().startsWith(Main.COMMAND_PREFIX + "warn")){
             if (event.getMessage().getMember().hasPermission(Permission.MANAGE_SERVER)){
 
-                EmbedBuilder embed = new EmbedBuilder();
-                embed.setAuthor("you have received a warning from " + event.getMessage().getGuild().getName());
-                embed.setColor(Color.red);
+                EmbedBuilder warning = new EmbedBuilder();
+                warning.setAuthor("you have received a warning from " + event.getMessage().getGuild().getName());
+                warning.setColor(Color.red);
 
                 List<Member> members = event.getMessage().getMentionedMembers();
                 for (Member member : members){
-                    member.getUser().openPrivateChannel().flatMap(channel -> channel.sendMessage(embed.build())).queue();
+                    member.getUser().openPrivateChannel().flatMap(channel -> channel.sendMessage(warning.build())).queue();
                 }
 
                 if (members.size() > 0){
-                    embed.setAuthor("warned the mentioned users");
+                    EmbedBuilder embed = new EmbedBuilder();
+                    embed.setAuthor("warned the mentioned users", null, event.getJDA().getSelfUser().getAvatarUrl());
                     embed.setColor(Color.red);
                     event.getMessage().getChannel().sendMessage(embed.build()).queue();
                 }
@@ -34,7 +35,7 @@ public class Warn extends ListenerAdapter {
             }
             else{
                 EmbedBuilder embed = new EmbedBuilder();
-                embed.setAuthor("you don't have the perms for that command <3");
+                embed.setAuthor("you don't have the perms for that command <3", null, event.getJDA().getSelfUser().getAvatarUrl());
                 embed.setColor(Color.red);
                 event.getMessage().getChannel().sendMessage(embed.build()).queue();
             }

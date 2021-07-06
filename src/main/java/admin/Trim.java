@@ -35,7 +35,7 @@ public class Trim extends ListenerAdapter {
             }
             else{
                 EmbedBuilder embed = new EmbedBuilder();
-                embed.setAuthor("sorry i was unable to trim the requested messages :(");
+                embed.setAuthor("sorry i was unable to trim the requested messages :(", null, event.getJDA().getSelfUser().getAvatarUrl());
                 embed.setColor(Color.red);
                 event.getMessage().getChannel().sendMessage(embed.build()).queue();
             }
