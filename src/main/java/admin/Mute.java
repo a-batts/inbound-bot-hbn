@@ -6,6 +6,7 @@ import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.exceptions.InsufficientPermissionException;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
@@ -18,14 +19,28 @@ public class Mute extends ListenerAdapter {
             if (event.getMessage().getMember().hasPermission(Permission.MANAGE_ROLES)|| event.getMessage().getMember().hasPermission(Permission.MANAGE_SERVER)){
                 List<Member> members = event.getMessage().getMentionedMembers();
 
-                Role muteRole = event.getGuild().getRolesByName(Main.MUTE_CHANNEL, false).get(0);
-                for(Member member: members){
-                    event.getGuild().addRoleToMember(member, muteRole).queue();
+                try{
+                    Role muteRole = event.getGuild().getRolesByName(Main.MUTE_CHANNEL, false).get(0);
+                    for(Member member: members){
+                        event.getGuild().addRoleToMember(member, muteRole).queue();
+                    }
+                    EmbedBuilder embed = new EmbedBuilder();
+                    embed.setAuthor("muted the mentioned users <3", null, event.getJDA().getSelfUser().getAvatarUrl());
+                    embed.setColor(Color.green);
+                    event.getMessage().getChannel().sendMessage(embed.build()).queue();
                 }
-                EmbedBuilder embed = new EmbedBuilder();
-                embed.setAuthor("muted the mentioned users <3", null, event.getJDA().getSelfUser().getAvatarUrl());
-                embed.setColor(Color.green);
-                event.getMessage().getChannel().sendMessage(embed.build()).queue();
+                catch (IndexOutOfBoundsException e) {
+                    EmbedBuilder embed = new EmbedBuilder();
+                    embed.setAuthor("you don't have a role named \"muted\" on this server", null, event.getJDA().getSelfUser().getAvatarUrl());
+                    embed.setColor(Color.red);
+                    event.getMessage().getChannel().sendMessage(embed.build()).queue();
+                }
+                catch (InsufficientPermissionException e){
+                    EmbedBuilder embed = new EmbedBuilder();
+                    embed.setAuthor("i don't have manage roles permissions. you can turn those on in role settings <3", null, event.getJDA().getSelfUser().getAvatarUrl());
+                    embed.setColor(Color.red);
+                    event.getMessage().getChannel().sendMessage(embed.build()).queue();
+                }
 
             }
             else{
