@@ -12,6 +12,7 @@ import admin.*;
 public class Main extends ListenerAdapter {
 
     public static String COMMAND_PREFIX = "!";
+    public static String MUTE_CHANNEL = "muted";
 
     public static void main(String[] args) throws LoginException {
         String token = "***REMOVED***";

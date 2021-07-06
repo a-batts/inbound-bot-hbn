@@ -15,12 +15,12 @@ public class Mute extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getMessage().getContentRaw().startsWith(Main.COMMAND_PREFIX + "muteuser")){
-            if (event.getMessage().getMember().hasPermission(Permission.MANAGE_ROLES)){
+            if (event.getMessage().getMember().hasPermission(Permission.MANAGE_ROLES)|| event.getMessage().getMember().hasPermission(Permission.MANAGE_SERVER)){
                 List<Member> members = event.getMessage().getMentionedMembers();
 
-                Role muteRole = event.getGuild().getRolesByName("muted", false).get(0);
+                Role muteRole = event.getGuild().getRolesByName(Main.MUTE_CHANNEL, false).get(0);
                 for(Member member: members){
-                    event.getGuild().addRoleToMember(member, muteRole);
+                    event.getGuild().addRoleToMember(member, muteRole).queue();
                 }
                 EmbedBuilder embed = new EmbedBuilder();
                 embed.setAuthor("muted the mentioned users <3", null, event.getJDA().getSelfUser().getAvatarUrl());
