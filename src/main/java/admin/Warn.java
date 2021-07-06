@@ -24,9 +24,9 @@ public class Warn extends ListenerAdapter {
                     message += split[i] + " ";
 
                 EmbedBuilder warning = new EmbedBuilder();
-                warning.setAuthor("Warn");
+                warning.setAuthor(event.getMessage().getJDA().getSelfUser().getName());
                 warning.setTitle("You have received a warning from " + event.getMessage().getGuild().getName());
-                if (split.length > members.size()){
+                if (split.length > members.size() + 1){
                     warning.setDescription("from " + event.getMessage().getAuthor().getAsMention() + " : " + message);
                 }
                 warning.setColor(Color.yellow);
@@ -35,11 +35,9 @@ public class Warn extends ListenerAdapter {
                     member.getUser().openPrivateChannel().flatMap(channel -> channel.sendMessage(warning.build())).queue();
                 }
 
-
-
                 if (members.size() > 0){
                     EmbedBuilder embed = new EmbedBuilder();
-                    embed.setAuthor("warned the mentioned users", null, event.getJDA().getSelfUser().getAvatarUrl());
+                    embed.setAuthor("warned the mentioned users <3", null, event.getJDA().getSelfUser().getAvatarUrl());
                     embed.setColor(Color.yellow);
                     event.getMessage().getChannel().sendMessage(embed.build()).queue();
                 }
