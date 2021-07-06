@@ -23,6 +23,10 @@ public class Warn extends ListenerAdapter {
                 member.getUser().openPrivateChannel().flatMap(channel -> channel.sendMessage(embed.build())).queue();
             }
 
+            embed.setAuthor("warned the mentioned users");
+            embed.setColor(Color.red);
+            event.getMessage().getChannel().sendMessage(embed.build()).queue();
+
         }
     }
 }
