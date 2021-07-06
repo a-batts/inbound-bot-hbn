@@ -20,14 +20,14 @@ public class Warn extends ListenerAdapter {
 
                 String[] split = event.getMessage().getContentRaw().split("\\s+");
                 String message = "";
-                for (int i = members.size(); i < split.length; i ++ )
+                for (int i = members.size() + 1; i < split.length; i ++ )
                     message += split[i] + "";
 
                 EmbedBuilder warning = new EmbedBuilder();
-                warning.setAuthor("Warning");
+                warning.setAuthor("Warn");
                 warning.setTitle("You have received a warning from " + event.getMessage().getGuild().getName());
                 warning.setDescription("Message: " + message);
-                warning.setColor(Color.red);
+                warning.setColor(Color.yellow);
 
                 for (Member member : members){
                     member.getUser().openPrivateChannel().flatMap(channel -> channel.sendMessage(warning.build())).queue();
@@ -38,7 +38,7 @@ public class Warn extends ListenerAdapter {
                 if (members.size() > 0){
                     EmbedBuilder embed = new EmbedBuilder();
                     embed.setAuthor("warned the mentioned users", null, event.getJDA().getSelfUser().getAvatarUrl());
-                    embed.setColor(Color.red);
+                    embed.setColor(Color.yellow);
                     event.getMessage().getChannel().sendMessage(embed.build()).queue();
                 }
 
