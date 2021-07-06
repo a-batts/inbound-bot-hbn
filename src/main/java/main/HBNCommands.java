@@ -13,7 +13,7 @@ public class HBNCommands extends ListenerAdapter {
             message.reply("our amazing shop district is located at /pw hotboy <3").queue();
 
         if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "lick"))
-            message.reply("\uD83D\uDC45" + message.getMember().getNickname() + " licked " + message.getContentRaw().substring(Main.COMMAND_PREFIX.length() + 5) + "\uD83D\uDC45").queue();
+            message.reply("\uD83D\uDC45" + message.getMember().getEffectiveName() + " licked " + message.getContentRaw().substring(Main.COMMAND_PREFIX.length() + 5) + "\uD83D\uDC45").queue();
     }
 
 }
