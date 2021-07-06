@@ -17,7 +17,7 @@ public class Main extends ListenerAdapter {
         String token = "***REMOVED***";
         JDABuilder builder = JDABuilder.createDefault(token);builder.setToken(token);
         builder.setStatus(OnlineStatus.ONLINE);
-        builder.setActivity(Activity.watching("\ud83e\udd7a your capitalization"));
+        builder.setActivity(Activity.watching("your capitalization"));
         builder.addEventListeners(new BasicResponses());
         builder.addEventListeners(new ClearChat());
         builder.addEventListeners(new HBNCommands());
