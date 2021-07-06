@@ -1,10 +1,10 @@
-main/HBNCommands.java
- main.HBNCommands
-admin/Trim.java
- admin.Trim
-admin/ClearChat.java
- admin.ClearChat
-main/Main.java
- main.Main
 main/BasicResponses.java
  main.BasicResponses
+main/HBNCommands.java
+ main.HBNCommands
+main/Main.java
+ main.Main
+admin/ClearChat.java
+ admin.ClearChat
+admin/Trim.java
+ admin.Trim

@@ -2,6 +2,7 @@ package main;
 
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
@@ -16,6 +17,7 @@ public class Main extends ListenerAdapter {
         String token = "***REMOVED***";
         JDABuilder builder = JDABuilder.createDefault(token);builder.setToken(token);
         builder.setStatus(OnlineStatus.ONLINE);
+        builder.setActivity(Activity.playing("\ud83e\udd7a Star cute"));
         builder.addEventListeners(new BasicResponses());
         builder.addEventListeners(new ClearChat());
         builder.addEventListeners(new HBNCommands());
