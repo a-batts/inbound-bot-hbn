@@ -22,7 +22,7 @@ public class Main extends ListenerAdapter {
         builder.addEventListeners(new ClearChat());
         builder.addEventListeners(new HBNCommands());
         builder.addEventListeners(new Trim());
-        builder.addEventListeners(new Warn());
+        builder.addEventListeners(new Warn(), new Mute());
 
         builder.build();
     }

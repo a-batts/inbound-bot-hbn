@@ -28,7 +28,7 @@ public class Trim extends ListenerAdapter {
                     channel.deleteMessages(deleteMessages).complete();
 
                     EmbedBuilder embed = new EmbedBuilder();
-                    embed.setAuthor("successfully trimmed the last " + amount + " messages <3", null, event.getJDA().getSelfUser().getAvatarUrl());
+                    embed.setAuthor("trimmed the last " + amount + " messages <3", null, event.getJDA().getSelfUser().getAvatarUrl());
                     embed.setColor(Color.green);
                     channel.sendMessage(embed.build()).queue();
                 }

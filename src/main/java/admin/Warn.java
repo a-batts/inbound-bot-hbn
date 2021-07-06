@@ -25,7 +25,7 @@ public class Warn extends ListenerAdapter {
 
                 EmbedBuilder warning = new EmbedBuilder();
                 warning.setAuthor(event.getMessage().getJDA().getSelfUser().getName());
-                warning.setTitle("You have received a warning from " + event.getMessage().getGuild().getName());
+                warning.setTitle("You have received a warning in " + event.getMessage().getGuild().getName());
                 if (split.length > members.size() + 1){
                     warning.setDescription("from " + event.getMessage().getAuthor().getAsMention() + " : " + message);
                 }
