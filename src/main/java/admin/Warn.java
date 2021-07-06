@@ -21,7 +21,7 @@ public class Warn extends ListenerAdapter {
                 String[] split = event.getMessage().getContentRaw().split("\\s+");
                 String message = "";
                 for (int i = members.size() + 1; i < split.length; i ++ )
-                    message += split[i] + "";
+                    message += split[i] + " ";
 
                 EmbedBuilder warning = new EmbedBuilder();
                 warning.setAuthor("Warn");
