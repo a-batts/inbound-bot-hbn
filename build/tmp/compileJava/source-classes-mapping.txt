@@ -6,7 +6,7 @@ main/Main.java
  main.Main
 admin/ClearChat.java
  admin.ClearChat
-admin/Warn.java
- admin.Warn
 admin/Trim.java
  admin.Trim
+admin/Warn.java
+ admin.Warn
