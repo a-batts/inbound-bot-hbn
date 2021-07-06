@@ -24,5 +24,9 @@ public class BasicResponses extends ListenerAdapter {
 
         if (message.getContentRaw().toLowerCase().contains("bestie") && message.getContentRaw().toLowerCase().contains("annie"))
             message.addReaction("\u2764\ufe0f").queue();
+
+        if (message.getContentRaw().toLowerCase().contains("coming out") || message.getContentRaw().toLowerCase().contains("come out")){
+            message.addReaction("\ud83c\udff3\ufe0f\u200d\ud83c\udf08").queue();
+        }
     }
 }
