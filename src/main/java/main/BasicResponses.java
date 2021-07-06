@@ -15,7 +15,7 @@ public class BasicResponses extends ListenerAdapter {
         if (message.getContentRaw().equalsIgnoreCase("hi amy"))
             message.reply("my name is annie <3").queue();
 
-        if (message.getContentRaw().equals(message.getContentRaw().toUpperCase()) && message.getContentRaw().trim().matches("([a-zA-Z]){3,}"))
+        if (message.getContentRaw().equals(message.getContentRaw().toUpperCase()) && message.getContentRaw().replaceAll("\\s", "").matches("([a-zA-Z]){3,}"))
             message.reply("no caps in " + message.getChannel().getName() + " please <3").queue();
     }
 }
