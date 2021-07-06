@@ -26,7 +26,9 @@ public class Warn extends ListenerAdapter {
                 EmbedBuilder warning = new EmbedBuilder();
                 warning.setAuthor("Warn");
                 warning.setTitle("You have received a warning from " + event.getMessage().getGuild().getName());
-                warning.setDescription("from " + event.getMessage().getAuthor().getAsMention() + " : " + message);
+                if (split.length > members.size()){
+                    warning.setDescription("from " + event.getMessage().getAuthor().getAsMention() + " : " + message);
+                }
                 warning.setColor(Color.yellow);
 
                 for (Member member : members){
