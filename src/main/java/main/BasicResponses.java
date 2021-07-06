@@ -1,5 +1,6 @@
 package main;
 
+import net.dv8tion.jda.api.entities.Emote;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -20,5 +21,8 @@ public class BasicResponses extends ListenerAdapter {
 
         if (message.getContentRaw().toLowerCase().contains("pandabot"))
             message.reply("im sorry but the old pandabot cant come to the phone right now").queue();
+
+        if (message.getContentRaw().toLowerCase().contains("bestie") && message.getContentRaw().toLowerCase().contains("annie"))
+            message.addReaction("♥").queue();
     }
 }
