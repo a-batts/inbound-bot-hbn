@@ -1,1 +1,1 @@
-web: java -jar AmyBot.jar
+worker: java -jar AmyBot.jar
