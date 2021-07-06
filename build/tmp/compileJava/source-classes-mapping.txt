@@ -1,12 +1,12 @@
 admin/Warn.java
  admin.Warn
-main/HBNCommands.java
- main.HBNCommands
+main/BasicResponses.java
+ main.BasicResponses
 admin/ClearChat.java
  admin.ClearChat
 admin/Trim.java
  admin.Trim
+main/HBNCommands.java
+ main.HBNCommands
 main/Main.java
  main.Main
-main/BasicResponses.java
- main.BasicResponses
