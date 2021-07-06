@@ -18,7 +18,7 @@ public class ClearChat extends ListenerAdapter {
             }
             else{
                 EmbedBuilder embed = new EmbedBuilder();
-                embed.setAuthor("you don't have the perms for that <3");
+                embed.setAuthor("you don't have the perms for that command <3");
                 embed.setColor(Color.red);
                 event.getMessage().getChannel().sendMessage(embed.build()).queue();
             }

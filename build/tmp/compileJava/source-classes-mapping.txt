@@ -2,11 +2,11 @@ main/BasicResponses.java
  main.BasicResponses
 main/HBNCommands.java
  main.HBNCommands
+admin/Trim.java
+ admin.Trim
 main/Main.java
  main.Main
 admin/ClearChat.java
  admin.ClearChat
 admin/Warn.java
  admin.Warn
-admin/Trim.java
- admin.Trim
