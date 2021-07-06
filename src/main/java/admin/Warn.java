@@ -13,8 +13,9 @@ import java.util.List;
 public class Warn extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event){
-        if (event.getMessage().getMember().hasPermission(Permission.MANAGE_SERVER)){
-            if (event.getMessage().getContentRaw().startsWith(Main.COMMAND_PREFIX + "warn")){
+        if (event.getMessage().getContentRaw().startsWith(Main.COMMAND_PREFIX + "warn")){
+            if (event.getMessage().getMember().hasPermission(Permission.MANAGE_SERVER)){
+
                 EmbedBuilder embed = new EmbedBuilder();
                 embed.setAuthor("you have received a warning from " + event.getMessage().getGuild().getName());
                 embed.setColor(Color.red);
@@ -31,12 +32,13 @@ public class Warn extends ListenerAdapter {
                 }
 
             }
+            else{
+                EmbedBuilder embed = new EmbedBuilder();
+                embed.setAuthor("you don't have the perms for that command <3");
+                embed.setColor(Color.red);
+                event.getMessage().getChannel().sendMessage(embed.build()).queue();
+            }
         }
-        else{
-            EmbedBuilder embed = new EmbedBuilder();
-            embed.setAuthor("you don't have the perms for that command <3");
-            embed.setColor(Color.red);
-            event.getMessage().getChannel().sendMessage(embed.build()).queue();
-        }
+
     }
 }

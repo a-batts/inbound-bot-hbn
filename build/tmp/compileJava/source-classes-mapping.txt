@@ -4,9 +4,9 @@ main/HBNCommands.java
  main.HBNCommands
 admin/Trim.java
  admin.Trim
-main/Main.java
- main.Main
 admin/ClearChat.java
  admin.ClearChat
+main/Main.java
+ main.Main
 admin/Warn.java
  admin.Warn
