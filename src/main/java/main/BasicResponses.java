@@ -23,6 +23,6 @@ public class BasicResponses extends ListenerAdapter {
             message.reply("im sorry but the old pandabot cant come to the phone right now").queue();
 
         if (message.getContentRaw().toLowerCase().contains("bestie") && message.getContentRaw().toLowerCase().contains("annie"))
-            message.addReaction("♥").queue();
+            message.addReaction("\u2764\ufe0f").queue();
     }
 }
