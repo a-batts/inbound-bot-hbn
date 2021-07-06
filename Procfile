@@ -1,1 +1,1 @@
-web: php amyBot.php
+web: java -jar AmyBot.jar
