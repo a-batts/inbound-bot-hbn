@@ -1,1 +1,1 @@
-worker: java -jar AmyBot.jar
+worker: java -jar build/libs/AmyBot.jar
