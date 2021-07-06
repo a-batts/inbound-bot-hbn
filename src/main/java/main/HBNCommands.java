@@ -14,6 +14,10 @@ public class HBNCommands extends ListenerAdapter {
 
         if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "lick"))
             message.reply("\uD83D\uDC45" + message.getMember().getEffectiveName() + " licked " + message.getContentRaw().substring(Main.COMMAND_PREFIX.length() + 5) + "\uD83D\uDC45").queue();
+
+        if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "stock")){
+
+        }
     }
 
 }
