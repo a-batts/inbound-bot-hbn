@@ -22,7 +22,8 @@ public class HBNCommands extends ListenerAdapter {
         if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "stab")){
             message.getChannel().sendMessage("\uD83D\uDE10\n" +
                     "<|-\uD83D\uDD2A\n" +
-                    "/|").queue();
+                    "/|\n +" +
+                    "Stabbed " + message.getContentRaw().substring(Main.COMMAND_PREFIX.length() + 5)).queue();
         }
     }
 
