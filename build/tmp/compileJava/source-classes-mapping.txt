@@ -1,5 +1,5 @@
-main/BasicResponses.java
- main.BasicResponses
+admin/Mute.java
+ admin.Mute
 main/HBNCommands.java
  main.HBNCommands
 admin/Trim.java
@@ -8,7 +8,7 @@ admin/Warn.java
  admin.Warn
 admin/ClearChat.java
  admin.ClearChat
-admin/Mute.java
- admin.Mute
 main/Main.java
  main.Main
+main/BasicResponses.java
+ main.BasicResponses
