@@ -31,8 +31,5 @@ public class Main extends ListenerAdapter {
         builder.addEventListeners(new EnforceCapitalization());
 
         jda = builder.build();
-
-        jda.updateCommands().complete();
-        jda.upsertCommand("ignorecaps", "Mute my capitalization warnings (altho idk why you would want to do that)").complete();
     }
 }
