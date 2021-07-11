@@ -1,5 +1,6 @@
 package main;
 
+import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -14,6 +15,8 @@ public class Main extends ListenerAdapter {
     public static String COMMAND_PREFIX = "!";
     public static String MUTE_CHANNEL = "muted";
 
+    public static JDA jda;
+
     public static void main(String[] args) throws LoginException {
         String token = "***REMOVED***";
         JDABuilder builder = JDABuilder.createDefault(token);builder.setToken(token);
@@ -25,7 +28,11 @@ public class Main extends ListenerAdapter {
         builder.addEventListeners(new Trim());
         builder.addEventListeners(new Warn());
         builder.addEventListeners(new Mute());
+        builder.addEventListeners(new EnforceCapitalization());
 
-        builder.build();
+        jda = builder.build();
+
+        jda.updateCommands().complete();
+        jda.upsertCommand("ignorecaps", "Mute my capitalization warnings (altho idk why you would want to do that)").complete();
     }
 }
