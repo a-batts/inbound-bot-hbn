@@ -20,6 +20,10 @@ public class EnforceCapitalization extends ListenerAdapter {
                 showingCaps = false;
                 message.reply("i'll start ignoring caps <3").queue();
             }
+            if (message.getContentRaw().equals(Main.COMMAND_PREFIX + "unignorecaps")){
+                showingCaps = true;
+                message.reply("no longer ignoring caps <3").queue();
+            }
         }
     }
 
