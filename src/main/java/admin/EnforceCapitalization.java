@@ -22,7 +22,7 @@ public class EnforceCapitalization extends ListenerAdapter {
         }
         if (message.getContentRaw().equals(Main.COMMAND_PREFIX + "ignorecaps") && Objects.requireNonNull(message.getMember()).hasPermission(Permission.MESSAGE_MANAGE)){
             message.getGuild().updateCommands().complete();
-            message.getGuild().upsertCommand("ignorecaps", "Mute my capitalization warnings (altho idk why you would want to do that)").complete();
+            message.getGuild().upsertCommand("unignorecaps", "Unmute my capitalization warnings (altho idk why you would want to do that)").complete();
             showingCaps = false;
             message.reply("i'll start ignoring caps <3").queue();
         }
