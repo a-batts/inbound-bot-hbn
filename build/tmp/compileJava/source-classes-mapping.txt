@@ -1,16 +1,16 @@
-admin/Trim.java
- admin.Trim
+main/BasicResponses.java
+ main.BasicResponses
+admin/EnforceCapitalization.java
+ admin.EnforceCapitalization
 main/HBNCommands.java
  main.HBNCommands
 admin/Mute.java
  admin.Mute
-main/BasicResponses.java
- main.BasicResponses
+main/Main.java
+ main.Main
 admin/ClearChat.java
  admin.ClearChat
 admin/Warn.java
  admin.Warn
-admin/EnforceCapitalization.java
- admin.EnforceCapitalization
-main/Main.java
- main.Main
+admin/Trim.java
+ admin.Trim
