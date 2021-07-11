@@ -19,14 +19,14 @@ public class EnforceCapitalization extends ListenerAdapter {
         if (showingCaps){
             if (message.getContentRaw().equals(message.getContentRaw().toUpperCase()) && message.getContentRaw().replaceAll("\\s", "").matches("([a-zA-Z]){7,}"))
                 message.reply("no caps in " + message.getChannel().getName() + " please <3").queue();
-            if (message.getContentRaw().equals(Main.COMMAND_PREFIX + "ignorecaps") && Objects.requireNonNull(message.getMember()).hasPermission(Permission.MESSAGE_MANAGE)){
-                showingCaps = false;
-                message.reply("i'll start ignoring caps <3").queue();
-            }
-            if (message.getContentRaw().equals(Main.COMMAND_PREFIX + "unignorecaps") && Objects.requireNonNull(message.getMember()).hasPermission(Permission.MESSAGE_MANAGE)){
-                showingCaps = true;
-                message.reply("no longer ignoring caps <3").queue();
-            }
+        }
+        if (message.getContentRaw().equals(Main.COMMAND_PREFIX + "ignorecaps") && Objects.requireNonNull(message.getMember()).hasPermission(Permission.MESSAGE_MANAGE)){
+            showingCaps = false;
+            message.reply("i'll start ignoring caps <3").queue();
+        }
+        if (message.getContentRaw().equals(Main.COMMAND_PREFIX + "unignorecaps") && Objects.requireNonNull(message.getMember()).hasPermission(Permission.MESSAGE_MANAGE)){
+            showingCaps = true;
+            message.reply("no longer ignoring caps <3").queue();
         }
     }
 
