@@ -18,38 +18,43 @@ public class Mute extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         Message message = event.getMessage();
-        if (PermissionManager.canManageRoles(message.getMember())){
-            if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "mute")){
+        if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "mute")){
+            if (PermissionManager.canManageRoles(message.getMember())) {
                 List<Member> members = message.getMentionedMembers();
-                try{
+                try {
                     Role muteRole = event.getGuild().getRolesByName(Main.MUTE_ROLE, false).get(0);
-                    for(Member member: members)
+                    for (Member member : members)
                         event.getGuild().addRoleToMember(member, muteRole).queue();
                     EmbedBuilder embed = new EmbedBuilder();
                     embed.setAuthor("muted the mentioned users <3", null, event.getJDA().getSelfUser().getAvatarUrl());
                     embed.setColor(Color.green);
                     message.getChannel().sendMessage(embed.build()).queue();
-                }
-                catch (IndexOutOfBoundsException e) {
+                } catch (IndexOutOfBoundsException e) {
                     EmbedBuilder embed = new EmbedBuilder();
                     embed.setAuthor("you don't have a role named \"" + Main.MUTE_ROLE + "\" on this server", null, event.getJDA().getSelfUser().getAvatarUrl());
                     embed.setColor(Color.red);
                     message.getChannel().sendMessage(embed.build()).queue();
-                }
-                catch (InsufficientPermissionException e){
+                } catch (InsufficientPermissionException e) {
                     EmbedBuilder embed = new EmbedBuilder();
                     embed.setAuthor("i don't have permissions to manage roles. you can turn those on in role settings <3", null, event.getJDA().getSelfUser().getAvatarUrl());
                     embed.setColor(Color.red);
                     message.getChannel().sendMessage(embed.build()).queue();
-                }
-                catch (HierarchyException e){
+                } catch (HierarchyException e) {
                     EmbedBuilder embed = new EmbedBuilder();
                     embed.setAuthor("i don't have permissions to mute. make sure that the mute role is not higher than my highest role", null, event.getJDA().getSelfUser().getAvatarUrl());
                     embed.setColor(Color.red);
                     message.getChannel().sendMessage(embed.build()).queue();
                 }
             }
-            else if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "unmute")){
+            else{
+                EmbedBuilder embed = new EmbedBuilder();
+                embed.setAuthor("you don't have the perms for that command <3", null, event.getJDA().getSelfUser().getAvatarUrl());
+                embed.setColor(Color.red);
+                message.getChannel().sendMessage(embed.build()).queue();
+            }
+        }
+        else if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "unmute")){
+            if (PermissionManager.canManageRoles(message.getMember())) {
                 List<Member> members = message.getMentionedMembers();
                 try{
                     Role muteRole = event.getGuild().getRolesByName(Main.MUTE_ROLE, false).get(0);
@@ -79,12 +84,12 @@ public class Mute extends ListenerAdapter {
                     message.getChannel().sendMessage(embed.build()).queue();
                 }
             }
-        }
-        else{
-            EmbedBuilder embed = new EmbedBuilder();
-            embed.setAuthor("you don't have the perms for that command <3", null, event.getJDA().getSelfUser().getAvatarUrl());
-            embed.setColor(Color.red);
-            message.getChannel().sendMessage(embed.build()).queue();
+            else{
+                EmbedBuilder embed = new EmbedBuilder();
+                embed.setAuthor("you don't have the perms for that command <3", null, event.getJDA().getSelfUser().getAvatarUrl());
+                embed.setColor(Color.red);
+                message.getChannel().sendMessage(embed.build()).queue();
+            }
         }
     }
 }
