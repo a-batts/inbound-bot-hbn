@@ -1,5 +1,12 @@
 package main;
 
+import main.modules.BasicResponses;
+import main.modules.EnforceCapitalization;
+import main.modules.HBNCommands;
+import main.modules.commands.ClearChat;
+import main.modules.commands.Mute;
+import main.modules.commands.Trim;
+import main.modules.commands.Warn;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -7,15 +14,29 @@ import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.security.auth.login.LoginException;
-
-import admin.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Main extends ListenerAdapter {
 
     public static String COMMAND_PREFIX = "!";
-    public static String MUTE_CHANNEL = "muted";
+    public static String MUTE_ROLE = "muted";
 
     public static JDA jda;
+
+    private static Connection getConnection() throws URISyntaxException, SQLException {
+        URI jdbUri = new URI(System.getenv("JAWSDB_MARIA_URL"));
+
+        String username = jdbUri.getUserInfo().split(":")[0];
+        String password = jdbUri.getUserInfo().split(":")[1];
+        String port = String.valueOf(jdbUri.getPort());
+        String jdbUrl = "jdbc:mysql://" + jdbUri.getHost() + ":" + port + jdbUri.getPath();
+
+        return DriverManager.getConnection(jdbUrl, username, password);
+    }
 
     public static void main(String[] args) throws LoginException {
         String token = "***REMOVED***";
