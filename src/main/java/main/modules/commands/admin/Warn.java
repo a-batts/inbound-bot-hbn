@@ -18,9 +18,9 @@ public class Warn extends ListenerAdapter{
         if (message.getContentRaw().startsWith(Main.COMMAND_PREFIX + "warn")) {
             if (PermissionManager.isAdmin(message.getMember())){List<Member> members = message.getMentionedMembers();
                 String[] split = message.getContentRaw().split("\\s+");
-                String warnMessage = "";
+                StringBuilder warnMessage = new StringBuilder();
                 for (int i = members.size() + 1; i < split.length; i ++ )
-                    warnMessage += split[i] + " ";
+                    warnMessage.append(split[i]).append(" ");
 
                 EmbedBuilder warning = new EmbedBuilder();
                 warning.setAuthor(message.getJDA().getSelfUser().getName());
