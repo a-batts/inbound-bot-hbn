@@ -1,18 +1,18 @@
-main/modules/BasicResponses.java
- main.modules.BasicResponses
 main/modules/permission/PermissionManager.java
  main.modules.permission.PermissionManager
-main/modules/commands/Trim.java
- main.modules.commands.Trim
+main/modules/chat/HBNChatResponses.java
+ main.modules.chat.HBNChatResponses
 main/modules/EnforceCapitalization.java
  main.modules.EnforceCapitalization
 main/modules/HBNCommands.java
  main.modules.HBNCommands
-main/modules/commands/Warn.java
- main.modules.commands.Warn
+main/modules/commands/admin/Trim.java
+ main.modules.commands.admin.Trim
 main/Main.java
  main.Main
-main/modules/commands/ClearChat.java
- main.modules.commands.ClearChat
-main/modules/commands/Mute.java
- main.modules.commands.Mute
+main/modules/commands/admin/Warn.java
+ main.modules.commands.admin.Warn
+main/modules/commands/admin/Mute.java
+ main.modules.commands.admin.Mute
+main/modules/commands/admin/ClearChat.java
+ main.modules.commands.admin.ClearChat

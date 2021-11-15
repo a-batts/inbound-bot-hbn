@@ -1,12 +1,9 @@
 package main;
 
-import main.modules.BasicResponses;
 import main.modules.EnforceCapitalization;
 import main.modules.HBNCommands;
-import main.modules.commands.ClearChat;
-import main.modules.commands.Mute;
-import main.modules.commands.Trim;
-import main.modules.commands.Warn;
+import main.modules.chat.*;
+import main.modules.commands.admin.*;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -43,7 +40,7 @@ public class Main extends ListenerAdapter {
         JDABuilder builder = JDABuilder.createDefault(token);builder.setToken(token);
         builder.setStatus(OnlineStatus.ONLINE);
         builder.setActivity(Activity.watching("your capitalization"));
-        builder.addEventListeners(new BasicResponses());
+        builder.addEventListeners(new HBNChatResponses());
         builder.addEventListeners(new ClearChat());
         builder.addEventListeners(new HBNCommands());
         builder.addEventListeners(new Trim());
