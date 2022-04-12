@@ -10,7 +10,7 @@ import javax.security.auth.login.LoginException;
 
 public class Bot extends ListenerAdapter {
 
-    public static String COMMAND_PREFIX = "-";
+    public static String COMMAND_PREFIX = "$";
     public static String MUTE_ROLE = "muted";
 
     public static JDA jda;
