@@ -17,6 +17,8 @@ public class CommandsManager extends ListenerAdapter {
 
     public void addCommands(){
         commands.add(new PwCommand());
+        commands.add(new LickCommand());
+        commands.add(new StabCommand());
     }
 
     public Command getCommand(String searchTerm){
