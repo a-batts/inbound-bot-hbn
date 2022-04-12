@@ -10,7 +10,7 @@ public class CommandListener extends ListenerAdapter {
 
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
-        String message = event.getMessage().toString();
+        String message = event.getMessage().getContentRaw();
         if (message.startsWith(Bot.COMMAND_PREFIX))
             listener.runCommand(event);
 
