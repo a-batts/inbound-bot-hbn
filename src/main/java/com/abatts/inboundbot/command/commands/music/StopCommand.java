@@ -46,4 +46,9 @@ public class StopCommand implements Command {
     public String getName() {
         return "stop";
     }
+
+    @Override
+    public String getDescription() {
+        return "Stop the currently playing music";
+    }
 }

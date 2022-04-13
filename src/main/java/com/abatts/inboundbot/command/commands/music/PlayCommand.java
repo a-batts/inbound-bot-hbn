@@ -56,6 +56,11 @@ public class PlayCommand implements Command {
         return name;
     }
 
+    @Override
+    public String getDescription() {
+        return "Play a specified song or YouTube link";
+    }
+
     private boolean isUrl(String url){
         try {
             new URI(url);

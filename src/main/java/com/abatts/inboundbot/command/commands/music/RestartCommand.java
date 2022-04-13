@@ -42,4 +42,9 @@ public class RestartCommand implements Command {
     public String getName() {
         return "restart";
     }
+
+    @Override
+    public String getDescription() {
+        return "Restart playback of the current song";
+    }
 }

@@ -54,4 +54,9 @@ public class WarnCommand implements Command {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String getDescription() {
+        return "Warn a specified user or group of users";
+    }
 }

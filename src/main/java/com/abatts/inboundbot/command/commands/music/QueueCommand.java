@@ -77,4 +77,9 @@ public class QueueCommand implements Command {
     public String getName() {
         return "queue";
     }
+
+    @Override
+    public String getDescription() {
+        return "View the list of currently queued songs";
+    }
 }

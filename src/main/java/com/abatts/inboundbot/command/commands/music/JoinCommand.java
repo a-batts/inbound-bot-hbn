@@ -49,4 +49,9 @@ public class JoinCommand implements Command {
     public String getName() {
         return "join";
     }
+
+    @Override
+    public String getDescription() {
+        return "Have the bot join your current voice channel";
+    }
 }

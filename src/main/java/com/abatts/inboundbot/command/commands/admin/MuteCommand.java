@@ -70,4 +70,9 @@ public class MuteCommand implements Command {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String getDescription() {
+        return "Mute a specified user or group of users";
+    }
 }

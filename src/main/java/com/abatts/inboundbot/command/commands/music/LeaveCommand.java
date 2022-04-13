@@ -39,4 +39,9 @@ public class LeaveCommand implements Command {
     public String getName() {
         return "leave";
     }
+
+    @Override
+    public String getDescription() {
+        return "Have the bot leave your current voice channel";
+    }
 }

@@ -7,4 +7,6 @@ public interface Command {
     void runCommand(GuildMessageReceivedEvent event);
 
     String getName();
+
+    String getDescription();
 }

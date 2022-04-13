@@ -20,4 +20,9 @@ public class LickCommand implements Command {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String getDescription() {
+        return "Lick the typed user";
+    }
 }

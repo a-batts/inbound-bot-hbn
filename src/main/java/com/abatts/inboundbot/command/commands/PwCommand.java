@@ -16,4 +16,9 @@ public class PwCommand implements Command {
     public String getName() {
         return "pw";
     }
+
+    @Override
+    public String getDescription() {
+        return "Get information about the HBN playerwarp";
+    }
 }

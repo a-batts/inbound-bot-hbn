@@ -52,4 +52,9 @@ public class NowPlayingCommand implements Command {
     public String getName() {
         return "nowplaying";
     }
+
+    @Override
+    public String getDescription() {
+        return "Display the song that is currently playing";
+    }
 }

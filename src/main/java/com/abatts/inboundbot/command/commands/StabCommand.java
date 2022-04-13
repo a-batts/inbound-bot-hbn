@@ -21,4 +21,9 @@ public class StabCommand implements Command {
     public String getName() {
         return name;
     }
+
+    @Override
+    public String getDescription() {
+        return "Stab the typed user";
+    }
 }
