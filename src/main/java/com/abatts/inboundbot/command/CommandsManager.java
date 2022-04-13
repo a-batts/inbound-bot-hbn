@@ -2,6 +2,7 @@ package com.abatts.inboundbot.command;
 
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.commands.*;
+import com.abatts.inboundbot.command.commands.admin.*;
 import com.abatts.inboundbot.command.commands.music.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -16,12 +17,17 @@ public class CommandsManager extends ListenerAdapter {
         addCommands();
     }
 
-    public void addCommands(){
+    private void addCommands(){
+        //HBN commands
         commands.add(new PwCommand());
         commands.add(new LickCommand());
         commands.add(new StabCommand());
 
         //Admin commands
+        commands.add(new WarnCommand());
+        commands.add(new ClearCommand());
+        commands.add(new MuteCommand());
+        commands.add(new UnmuteCommand());
 
         //Music commands
         commands.add(new JoinCommand());
