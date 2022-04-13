@@ -61,7 +61,11 @@ public class QueueCommand implements Command {
         String [] songs = new String[queue.size()];
         int i = 0;
         for (AudioTrack tr: queue){
-            songs[i] = tr.getInfo().title;
+            String trackName = tr.getInfo().title;
+            if (! tr.getInfo().title.contains(tr.getInfo().author))
+                trackName = tr.getInfo().author + " - " + trackName;
+
+            songs[i] = trackName;
             i++;
         }
 

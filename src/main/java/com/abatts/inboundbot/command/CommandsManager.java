@@ -36,6 +36,7 @@ public class CommandsManager extends ListenerAdapter {
         commands.add(new StopCommand());
         commands.add(new NowPlayingCommand());
         commands.add(new SkipCommand());
+        commands.add(new RestartCommand());
         commands.add(new QueueCommand());
     }
 
