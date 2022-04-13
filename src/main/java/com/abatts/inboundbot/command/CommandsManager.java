@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandsManager extends ListenerAdapter {
-    private List<Command> commands = new ArrayList<>();
+    private final List<Command> commands = new ArrayList<>();
 
     public CommandsManager(){
         addCommands();
@@ -26,6 +26,11 @@ public class CommandsManager extends ListenerAdapter {
         //Music commands
         commands.add(new JoinCommand());
         commands.add(new LeaveCommand());
+        commands.add(new PlayCommand());
+        commands.add(new StopCommand());
+        commands.add(new NowPlayingCommand());
+        commands.add(new SkipCommand());
+        commands.add(new QueueCommand());
     }
 
     public Command getCommand(String searchTerm){

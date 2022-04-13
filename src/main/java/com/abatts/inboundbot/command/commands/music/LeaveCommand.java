@@ -1,10 +1,13 @@
 package com.abatts.inboundbot.command.commands.music;
 
 import com.abatts.inboundbot.command.Command;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+
+import java.awt.*;
 
 public class LeaveCommand implements Command {
     @SuppressWarnings("ConstantConditions")
@@ -20,11 +23,15 @@ public class LeaveCommand implements Command {
         if (userState.inVoiceChannel()){
             if (userState.getChannel() == botState.getChannel() && userState.getChannel() != null){
                 event.getGuild().getAudioManager().closeAudioConnection();
-                message.reply("Goodbye!").queue();
+                event.getChannel().sendMessageEmbeds(new EmbedBuilder()
+                        .setAuthor("Goodbye!", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl())
+                        .setColor(Color.GREEN).build()).queue();
             }
         }
         else {
-            message.getChannel().sendMessage("You need to be in the same voice channel as me to use this command").queue();
+            event.getChannel().sendMessageEmbeds(new EmbedBuilder()
+                    .setAuthor("You need to be in the same voice channel as the bot to run this command", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl())
+                    .setColor(Color.RED).build()).queue();
         }
     }
 
