@@ -1,12 +1,10 @@
 package com.abatts.inboundbot.command.commands.admin;
 
-import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.Command;
 import com.abatts.inboundbot.permission.PermissionManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.awt.*;
