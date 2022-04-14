@@ -11,7 +11,6 @@ import net.dv8tion.jda.api.exceptions.PermissionException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class HelpCommand implements Command {
@@ -47,15 +46,15 @@ public class HelpCommand implements Command {
         if (event.getMessage().getContentRaw().length() > Bot.COMMAND_PREFIX.length() + name.length() + 1){
             String selHelpCategory = event.getMessage().getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1);
             switch (selHelpCategory.toLowerCase()) {
-                case "music": {
+                case "music" -> {
                     event.getChannel().sendMessageEmbeds(musicCommands.build()).queue();
                     return;
                 }
-                case "fun", "misc": {
+                case "fun", "misc" -> {
                     event.getChannel().sendMessageEmbeds(basicCommands.build()).queue();
                     return;
                 }
-                case "admin": {
+                case "admin" -> {
                     event.getChannel().sendMessageEmbeds(adminCommands.build()).queue();
                     return;
                 }
