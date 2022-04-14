@@ -33,10 +33,15 @@ public class HelpCommand implements Command {
             musicCommands.addField("$" + c.getName(), c.getDescription(), false);
         embeds.add(musicCommands.build());
 
-        EmbedBuilder basicCommands = new EmbedBuilder().setAuthor("Fun commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
+        EmbedBuilder baseCommands = new EmbedBuilder().setAuthor("Basic commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
+        for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.BASE))
+            baseCommands.addField("$" + c.getName(), c.getDescription(), false);
+        embeds.add(baseCommands.build());
+
+        EmbedBuilder hbnCommands = new EmbedBuilder().setAuthor("Fun commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
         for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.HBN))
-            basicCommands.addField("$" + c.getName(), c.getDescription(), false);
-        embeds.add(basicCommands.build());
+            hbnCommands.addField("$" + c.getName(), c.getDescription(), false);
+        embeds.add(hbnCommands.build());
 
         EmbedBuilder adminCommands = new EmbedBuilder().setAuthor("Admin commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
         for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.ADMIN))
@@ -51,11 +56,15 @@ public class HelpCommand implements Command {
                     return;
                 }
                 case "fun", "misc" -> {
-                    event.getChannel().sendMessageEmbeds(basicCommands.build()).queue();
+                    event.getChannel().sendMessageEmbeds(hbnCommands.build()).queue();
                     return;
                 }
                 case "admin" -> {
                     event.getChannel().sendMessageEmbeds(adminCommands.build()).queue();
+                    return;
+                }
+                case "basic" -> {
+                    event.getChannel().sendMessageEmbeds(baseCommands.build()).queue();
                     return;
                 }
             }

@@ -59,6 +59,7 @@ public class CommandsManager extends ListenerAdapter {
             }
             case BASE: {
                 commands.add(new HelpCommand());
+                commands.add(new GetAvatarCommand());
                 break;
             }
             case HBN: {
