@@ -34,7 +34,7 @@ test {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.a-batts.inboundbot.Bot'
+                'Main-Class': 'com.abatts.inboundbot.Bot'
         )
     }
 }
