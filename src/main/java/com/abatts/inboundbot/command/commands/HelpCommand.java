@@ -15,7 +15,7 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class HelpCommand implements Command {
-    private String name = "help";
+    private final String name = "help";
     private int pagenum = 1;
 
     @Override
@@ -27,15 +27,6 @@ public class HelpCommand implements Command {
                 .waitOnSinglePage(false)
                 .wrapPageEnds(true)
                 .setText("");
-
-        if (event.getMessage().getContentRaw().length() > Bot.COMMAND_PREFIX.length() + name.length() + 1){
-            String selHelpCategory = event.getMessage().getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1);
-            switch (selHelpCategory.toLowerCase()) {
-                case "music" -> pagenum = 1;
-                case "fun", "misc" -> pagenum = 2;
-                case "admin" -> pagenum = 3;
-            }
-        }
 
         List<MessageEmbed> embeds = new ArrayList<>();
         EmbedBuilder musicCommands = new EmbedBuilder().setAuthor("Music commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
@@ -52,6 +43,24 @@ public class HelpCommand implements Command {
         for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.ADMIN))
             adminCommands.addField("$" + c.getName(), c.getDescription(), false);
         embeds.add(adminCommands.build());
+
+        if (event.getMessage().getContentRaw().length() > Bot.COMMAND_PREFIX.length() + name.length() + 1){
+            String selHelpCategory = event.getMessage().getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1);
+            switch (selHelpCategory.toLowerCase()) {
+                case "music": {
+                    event.getChannel().sendMessageEmbeds(musicCommands.build()).queue();
+                    return;
+                }
+                case "fun", "misc": {
+                    event.getChannel().sendMessageEmbeds(basicCommands.build()).queue();
+                    return;
+                }
+                case "admin": {
+                    event.getChannel().sendMessageEmbeds(adminCommands.build()).queue();
+                    return;
+                }
+            }
+        }
 
         helpPaginator.setItems(embeds);
         helpPaginator.build().paginate(event.getMessage().getChannel(), pagenum);
