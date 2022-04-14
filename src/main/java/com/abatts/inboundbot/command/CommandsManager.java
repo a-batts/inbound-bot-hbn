@@ -18,6 +18,8 @@ public class CommandsManager extends ListenerAdapter {
     }
 
     private void addCommands(){
+        //commands.add(new HelpCommand());
+
         //HBN commands
         commands.add(new PwCommand());
         commands.add(new LickCommand());
