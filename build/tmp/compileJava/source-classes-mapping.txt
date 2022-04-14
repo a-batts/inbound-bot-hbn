@@ -10,3 +10,44 @@ com/a-batts/inboundbot/command/CommandListener.java
  main.CommandListener
 com/a-batts/inboundbot/command/CommandsManager.java
  command.CommandsManager
+com/abatts/inboundbot/command/commands/music/JoinCommand.java
+ com.abatts.inboundbot.command.commands.music.JoinCommand
+com/abatts/inboundbot/command/commands/music/LeaveCommand.java
+ com.abatts.inboundbot.command.commands.music.LeaveCommand
+com/abatts/inboundbot/command/commands/music/PlayCommand.java
+ com.abatts.inboundbot.command.commands.music.PlayCommand
+com/abatts/inboundbot/command/commands/StabCommand.java
+ com.abatts.inboundbot.command.commands.StabCommand
+com/abatts/inboundbot/command/commands/admin/MuteCommand.java
+ com.abatts.inboundbot.command.commands.admin.MuteCommand
+com/abatts/inboundbot/command/commands/music/StopCommand.java
+ com.abatts.inboundbot.command.commands.music.StopCommand
+com/abatts/inboundbot/command/Command.java
+ com.abatts.inboundbot.command.Command
+com/abatts/inboundbot/command/commands/music/RestartCommand.java
+ com.abatts.inboundbot.command.commands.music.RestartCommand
+com/abatts/inboundbot/command/commands/admin/ClearCommand.java
+ com.abatts.inboundbot.command.commands.admin.ClearCommand
+com/abatts/inboundbot/command/commands/admin/WarnCommand.java
+ com.abatts.inboundbot.command.commands.admin.WarnCommand
+com/abatts/inboundbot/command/commands/music/SkipCommand.java
+ com.abatts.inboundbot.command.commands.music.SkipCommand
+com/abatts/inboundbot/command/commands/PwCommand.java
+ com.abatts.inboundbot.command.commands.PwCommand
+com/abatts/inboundbot/command/commands/music/QueueCommand.java
+ com.abatts.inboundbot.command.commands.music.QueueCommand
+com/abatts/inboundbot/command/commands/music/NowPlayingCommand.java
+ com.abatts.inboundbot.command.commands.music.NowPlayingCommand
+com/abatts/inboundbot/command/commands/admin/UnmuteCommand.java
+ com.abatts.inboundbot.command.commands.admin.UnmuteCommand
+com/abatts/inboundbot/command/commands/LickCommand.java
+ com.abatts.inboundbot.command.commands.LickCommand
+com/abatts/inboundbot/command/commands/CommandCategory.java
+ com.abatts.inboundbot.command.commands.CommandCategory
+com/abatts/inboundbot/CommandListener.java
+ com.abatts.inboundbot.CommandListener
+com/abatts/inboundbot/command/CommandsManager.java
+ com.abatts.inboundbot.command.CommandsManager
+ com.abatts.inboundbot.command.CommandsManager$1
+com/abatts/inboundbot/command/commands/HelpCommand.java
+ com.abatts.inboundbot.command.commands.HelpCommand

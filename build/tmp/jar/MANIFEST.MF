@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.a-batts.inboundbot.Bot
+Main-Class: com.abatts.inboundbot.Bot
 

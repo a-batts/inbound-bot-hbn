@@ -18,28 +18,14 @@ public class CommandsManager extends ListenerAdapter {
     }
 
     private void addCommands(){
-        //commands.add(new HelpCommand());
-
+        commands.addAll(getCommandsByCategory(CommandCategory.BASE));
         //HBN commands
-        commands.add(new PwCommand());
-        commands.add(new LickCommand());
-        commands.add(new StabCommand());
-
+        commands.addAll(getCommandsByCategory(CommandCategory.HBN));
         //Admin commands
-        commands.add(new WarnCommand());
-        commands.add(new ClearCommand());
-        commands.add(new MuteCommand());
-        commands.add(new UnmuteCommand());
-
+        commands.addAll(getCommandsByCategory(CommandCategory.ADMIN));
         //Music commands
-        commands.add(new JoinCommand());
-        commands.add(new LeaveCommand());
-        commands.add(new PlayCommand());
-        commands.add(new StopCommand());
-        commands.add(new NowPlayingCommand());
-        commands.add(new SkipCommand());
-        commands.add(new RestartCommand());
-        commands.add(new QueueCommand());
+        commands.addAll(getCommandsByCategory(CommandCategory.MUSIC));
+
     }
 
     public Command getCommand(String searchTerm){
@@ -58,6 +44,44 @@ public class CommandsManager extends ListenerAdapter {
             event.getChannel().sendTyping().queue();
             command.runCommand(event);
         }
+    }
+
+    public static List<Command> getCommandsByCategory(CommandCategory category){
+        List<Command> commands = new ArrayList<>();
+
+        switch(category){
+            case ADMIN: {
+                commands.add(new WarnCommand());
+                commands.add(new ClearCommand());
+                commands.add(new MuteCommand());
+                commands.add(new UnmuteCommand());
+                break;
+            }
+            case BASE: {
+                commands.add(new HelpCommand());
+                break;
+            }
+            case HBN: {
+                commands.add(new PwCommand());
+                commands.add(new LickCommand());
+                commands.add(new StabCommand());
+                break;
+            }
+            case MUSIC: {
+                commands.add(new JoinCommand());
+                commands.add(new LeaveCommand());
+                commands.add(new PlayCommand());
+                commands.add(new StopCommand());
+                commands.add(new NowPlayingCommand());
+                commands.add(new SkipCommand());
+                commands.add(new RestartCommand());
+                commands.add(new QueueCommand());
+                break;
+            }
+
+        }
+
+        return commands;
     }
 
 }
