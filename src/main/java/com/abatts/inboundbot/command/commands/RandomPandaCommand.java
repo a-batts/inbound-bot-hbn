@@ -28,7 +28,8 @@ public class RandomPandaCommand implements Command {
             Photo randomPhoto = results.get((int) (Math.random() * results.size()));
             event.getChannel().sendMessageEmbeds(new EmbedBuilder()
                     .setAuthor("Random panda", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl())
-                    .setImage(randomPhoto.getMediumUrl()).build()).queue();
+                    .setImage(randomPhoto.getMediumUrl())
+                    .setFooter("Image sourced from Flickr").build()).queue();
         } catch (FlickrException e){
             System.out.println(e.getLocalizedMessage());
             event.getChannel().sendMessageEmbeds(new EmbedBuilder()
