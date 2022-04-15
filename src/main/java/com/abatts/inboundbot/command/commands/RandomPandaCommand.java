@@ -23,6 +23,7 @@ public class RandomPandaCommand implements Command {
             params.setText("panda");
             params.setTags(new String[]{"zoo", "panda"});
             params.setSafeSearch("1");
+            params.setHasGeo(true);
 
             PhotoList<Photo> results = photos.search(params, 200, 0);
             Photo randomPhoto = results.get((int) (Math.random() * results.size()));
