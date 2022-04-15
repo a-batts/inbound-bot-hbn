@@ -20,12 +20,11 @@ public class RandomPandaCommand implements Command {
         try {
             PhotosInterface photos = Bot.FLICKR.getPhotosInterface();
             SearchParameters params = new SearchParameters();
-            params.setText("panda");
-            params.setTags(new String[]{"zoo", "panda"});
+            params.setText("panda zoo");
+            params.setTags(new String[]{"zoo", "panda", "bear"});
             params.setSafeSearch("1");
-            params.setHasGeo(true);
 
-            PhotoList<Photo> results = photos.search(params, 200, 0);
+            PhotoList<Photo> results = photos.search(params, 250, 0);
             Photo randomPhoto = results.get((int) (Math.random() * results.size()));
             event.getChannel().sendMessageEmbeds(new EmbedBuilder()
                     .setAuthor("Random panda", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl())
