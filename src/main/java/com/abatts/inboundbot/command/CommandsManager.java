@@ -60,6 +60,7 @@ public class CommandsManager extends ListenerAdapter {
             case BASE: {
                 commands.add(new HelpCommand());
                 commands.add(new GetAvatarCommand());
+                commands.add(new RandomPandaCommand());
                 break;
             }
             case HBN: {
