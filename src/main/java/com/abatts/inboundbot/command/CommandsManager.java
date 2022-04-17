@@ -49,27 +49,24 @@ public class CommandsManager extends ListenerAdapter {
     public static List<Command> getCommandsByCategory(CommandCategory category){
         List<Command> commands = new ArrayList<>();
 
-        switch(category){
-            case ADMIN: {
+        switch (category) {
+            case ADMIN -> {
                 commands.add(new WarnCommand());
                 commands.add(new ClearCommand());
                 commands.add(new MuteCommand());
                 commands.add(new UnmuteCommand());
-                break;
             }
-            case BASE: {
+            case BASE -> {
                 commands.add(new HelpCommand());
                 commands.add(new GetAvatarCommand());
                 commands.add(new RandomPandaCommand());
-                break;
             }
-            case HBN: {
+            case HBN -> {
                 commands.add(new PwCommand());
                 commands.add(new LickCommand());
                 commands.add(new StabCommand());
-                break;
             }
-            case MUSIC: {
+            case MUSIC -> {
                 commands.add(new JoinCommand());
                 commands.add(new LeaveCommand());
                 commands.add(new PlayCommand());
@@ -79,9 +76,8 @@ public class CommandsManager extends ListenerAdapter {
                 commands.add(new NowPlayingCommand());
                 commands.add(new QueueCommand());
                 commands.add(new PlayNowCommand());
-                break;
+                commands.add(new DequeueCommand());
             }
-
         }
 
         return commands;
