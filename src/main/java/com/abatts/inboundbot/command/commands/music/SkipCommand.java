@@ -66,4 +66,9 @@ public class SkipCommand implements Command {
     public String getDescription() {
         return "Skip to the next song in the queue";
     }
+
+    @Override
+    public String[] getAliases(){
+        return new String[]{"nextsong"};
+    }
 }
