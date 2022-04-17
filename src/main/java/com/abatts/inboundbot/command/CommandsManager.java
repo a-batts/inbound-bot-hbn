@@ -3,6 +3,7 @@ package com.abatts.inboundbot.command;
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.commands.*;
 import com.abatts.inboundbot.command.commands.admin.*;
+import com.abatts.inboundbot.command.commands.hbn.BonkCommand;
 import com.abatts.inboundbot.command.commands.hbn.LickCommand;
 import com.abatts.inboundbot.command.commands.hbn.PwCommand;
 import com.abatts.inboundbot.command.commands.hbn.StabCommand;
@@ -68,6 +69,7 @@ public class CommandsManager extends ListenerAdapter {
                 commands.add(new PwCommand());
                 commands.add(new LickCommand());
                 commands.add(new StabCommand());
+                commands.add(new BonkCommand());
             }
             case MUSIC -> {
                 commands.add(new JoinCommand());
