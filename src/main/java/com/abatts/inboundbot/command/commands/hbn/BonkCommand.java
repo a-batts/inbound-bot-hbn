@@ -14,11 +14,15 @@ public class BonkCommand implements Command {
     public void runCommand(GuildMessageReceivedEvent event) {
         Message message = event.getMessage();
 
+        String bonkString = message.getMember().getEffectiveName() + " bonked ";
+        if (message.getMentionedUsers().size() > 0)
+            bonkString += message.getMentionedMembers().get(0).getEffectiveName();
+        else
+            bonkString += message.getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1);
+
         EmbedBuilder bonkEmbed = new EmbedBuilder()
                 .setAuthor("BONK!", null, event.getJDA().getSelfUser().getAvatarUrl())
-                .setTitle(message.getMember().getEffectiveName() + " bonked "
-                        + message.getContentRaw().substring(Bot.COMMAND_PREFIX.length()
-                                + name.length() + 1))
+                .setTitle(bonkString)
                 .setImage(BONK_IMAGE);
         message.getChannel().sendMessageEmbeds(bonkEmbed.build()).queue();
     }
