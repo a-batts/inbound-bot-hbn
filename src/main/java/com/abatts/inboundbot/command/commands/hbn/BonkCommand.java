@@ -11,7 +11,7 @@ public class BonkCommand implements Command {
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
         Message message = event.getMessage();
-        message.getChannel().sendMessage("BOONK! " + message.getMember().getEffectiveName() + " bonked "
+        message.getChannel().sendMessage("BOONK!    " + message.getMember().getEffectiveName() + " bonked "
                 + message.getContentRaw().substring(Bot.COMMAND_PREFIX.length()
                 + name.length() + 1)).queue();
     }
