@@ -8,8 +8,7 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.LinkedList;
 
 public class PlayNowCommand implements Command {
     @Override
@@ -19,7 +18,7 @@ public class PlayNowCommand implements Command {
             GuildTrackManager trackManager = PlayerManager.getInstance().getTrackManager(event.getGuild());
             trackManager.trackScheduler.player.stopTrack();
 
-            BlockingQueue<AudioTrack> tracks = new LinkedBlockingQueue<>(trackManager.trackScheduler.songQueue);
+            LinkedList<AudioTrack> tracks = new LinkedList<>(trackManager.trackScheduler.songQueue);
             trackManager.trackScheduler.songQueue.clear();
             new PlayCommand().runCommand(event);
             trackManager.trackScheduler.songQueue.addAll(tracks);
