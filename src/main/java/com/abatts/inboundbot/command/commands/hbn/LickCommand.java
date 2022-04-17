@@ -11,9 +11,9 @@ public class LickCommand implements Command {
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
         Message message = event.getMessage();
-        message.getChannel().sendMessage("BOONK!" + message.getMember().getEffectiveName() + " bonked "
+        message.getChannel().sendMessage("\uD83D\uDC45" + message.getMember().getEffectiveName() + " licked "
                 + message.getContentRaw().substring(Bot.COMMAND_PREFIX.length()
-                + name.length() + 1)).queue();
+                + name.length() + 1) + "\uD83D\uDC45").queue();
     }
 
     @Override

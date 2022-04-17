@@ -66,10 +66,10 @@ public class CommandsManager extends ListenerAdapter {
                 commands.add(new RandomPandaCommand());
             }
             case HBN -> {
+                commands.add(new BonkCommand());
                 commands.add(new PwCommand());
                 commands.add(new LickCommand());
                 commands.add(new StabCommand());
-                commands.add(new BonkCommand());
             }
             case MUSIC -> {
                 commands.add(new JoinCommand());
