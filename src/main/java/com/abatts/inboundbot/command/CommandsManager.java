@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CommandsManager extends ListenerAdapter {
@@ -34,7 +35,7 @@ public class CommandsManager extends ListenerAdapter {
 
     public Command getCommand(String searchTerm){
         for(Command c: commands){
-            if (c.getName().equals(searchTerm))
+            if (c.getName().equals(searchTerm) || Arrays.asList(c.getArgs()).contains(searchTerm))
                 return c;
         }
         return null;

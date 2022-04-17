@@ -9,4 +9,8 @@ public interface Command {
     String getName();
 
     String getDescription();
+
+    default String [] getArgs(){
+        return new String[0];
+    }
 }

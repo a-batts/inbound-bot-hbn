@@ -23,6 +23,8 @@ public class Bot {
 
     public static final Flickr FLICKR = new Flickr(FLICKR_API_KEY, FLICKR_API_SECRET, new REST());
 
+    public static final String GIPHY_API_KEY = "***REMOVED***";
+
     public static void main(String[] args) {
         try
         {
