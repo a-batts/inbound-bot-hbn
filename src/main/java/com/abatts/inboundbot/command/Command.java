@@ -10,7 +10,7 @@ public interface Command {
 
     String getDescription();
 
-    default String [] getArgs(){
+    default String [] getAliases(){
         return new String[0];
     }
 }

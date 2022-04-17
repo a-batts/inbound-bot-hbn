@@ -35,7 +35,7 @@ public class CommandsManager extends ListenerAdapter {
 
     public Command getCommand(String searchTerm){
         for(Command c: commands){
-            if (c.getName().equals(searchTerm) || Arrays.asList(c.getArgs()).contains(searchTerm))
+            if (c.getName().equals(searchTerm) || Arrays.asList(c.getAliases()).contains(searchTerm))
                 return c;
         }
         return null;

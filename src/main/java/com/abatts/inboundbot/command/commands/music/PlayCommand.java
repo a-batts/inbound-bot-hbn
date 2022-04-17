@@ -62,6 +62,11 @@ public class PlayCommand implements Command {
         return "Play a specified song or YouTube link";
     }
 
+    @Override
+    public String [] getAliases(){
+        return new String[]{"p", "playsong", "enqueue"};
+    }
+
     private boolean isUrl(String url){
         try {
             new URI(url);
