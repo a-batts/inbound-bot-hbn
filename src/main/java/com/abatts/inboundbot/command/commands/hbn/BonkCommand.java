@@ -15,9 +15,10 @@ public class BonkCommand implements Command {
         Message message = event.getMessage();
 
         EmbedBuilder bonkEmbed = new EmbedBuilder()
-                .setAuthor("BONK!    " + message.getMember().getEffectiveName() + " bonked "
+                .setAuthor("BONK!", null, event.getJDA().getSelfUser().getAvatarUrl())
+                .setTitle(message.getMember().getEffectiveName() + " bonked "
                         + message.getContentRaw().substring(Bot.COMMAND_PREFIX.length()
-                        + name.length() + 1), null, event.getJDA().getSelfUser().getAvatarUrl())
+                                + name.length() + 1))
                 .setImage(BONK_IMAGE);
         message.getChannel().sendMessageEmbeds(bonkEmbed.build()).queue();
     }
