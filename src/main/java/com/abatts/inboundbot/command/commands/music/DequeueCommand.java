@@ -30,12 +30,13 @@ public class DequeueCommand implements Command {
             GuildTrackManager trackManager = PlayerManager.getInstance().getTrackManager(event.getGuild());
             if (songToRemove < trackManager.trackScheduler.songQueue.size()){
                 LinkedList<AudioTrack> tracks = new LinkedList<>(trackManager.trackScheduler.songQueue);
-                AudioTrack removedTrack = tracks.remove(songToRemove);
+                AudioTrack removedTrack = tracks.remove(songToRemove - 1);
                 trackManager.trackScheduler.songQueue = new LinkedBlockingQueue<>(tracks);
 
                 event.getChannel().sendMessageEmbeds(new EmbedBuilder()
                         .setAuthor("Successfully removed " + removedTrack.getInfo().title + " from the queue", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl())
                         .setColor(Color.GREEN).build()).queue();
+                return;
             }
             event.getChannel().sendMessageEmbeds(new EmbedBuilder()
                     .setAuthor("You need to pick a valid position in the queue", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl())
