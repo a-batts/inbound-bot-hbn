@@ -1,4 +1,4 @@
-package com.abatts.inboundbot.command.commands;
+package com.abatts.inboundbot.command.commands.hbn;
 
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.Command;
@@ -11,9 +11,9 @@ public class LickCommand implements Command {
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
         Message message = event.getMessage();
-        message.reply("\uD83D\uDC45" + message.getMember().getEffectiveName() + " licked "
+        message.getChannel().sendMessage("BOONK!" + message.getMember().getEffectiveName() + " bonked "
                 + message.getContentRaw().substring(Bot.COMMAND_PREFIX.length()
-                + name.length() + 1) + "\uD83D\uDC45").queue();
+                + name.length() + 1)).queue();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.abatts.inboundbot.command.commands;
+package com.abatts.inboundbot.command.commands.hbn;
 
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.Command;
