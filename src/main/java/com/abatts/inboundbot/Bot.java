@@ -23,18 +23,9 @@ public class Bot {
     public static Flickr flickr;
 
     public static void main(String[] args) {
-        String botToken;
+        flickr = new Flickr(getEnvProperty("FLICKR_API_KEY"), getEnvProperty("FLICKR_API_SECRET"), new REST());
         try {
-            Dotenv env = Dotenv.load();
-            botToken = env.get("DISCORD_BOT_TOKEN");
-            flickr = new Flickr(env.get("FLICKR_API_KEY"), env.get("FLICKR_API_SECRET"), new REST());
-        } catch (DotenvException e){
-            botToken = System.getenv("DISCORD_BOT_TOKEN");
-            flickr = new Flickr(System.getenv("FLICKR_API_KEY"), System.getenv("FLICKR_API_SECRET"), new REST());
-        }
-
-        try {
-            new Bot().start(botToken);
+            new Bot().start(getEnvProperty("DISCORD_BOT_TOKEN"));
         }
         catch (LoginException | InterruptedException ex) {
             ex.printStackTrace();
@@ -52,5 +43,16 @@ public class Bot {
 
     public static EventWaiter getEventWaiter() {
         return eventWaiter;
+    }
+
+    public static String getEnvProperty(String key){
+        try {
+            //Local .env case
+            Dotenv env = Dotenv.load();
+            return env.get(key);
+        } catch (DotenvException e){
+            //Production Heroku case
+            return System.getenv(key);
+        }
     }
 }
