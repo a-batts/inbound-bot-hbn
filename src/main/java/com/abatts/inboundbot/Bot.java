@@ -3,6 +3,7 @@ package com.abatts.inboundbot;
 import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.REST;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
+import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -18,17 +19,14 @@ public class Bot {
 
     public static JDA jda;
 
-    private static final String FLICKR_API_KEY = "***REMOVED***";
-    private static final String FLICKR_API_SECRET = "***REMOVED***";
+    public static final Dotenv env = Dotenv.load();
 
-    public static final Flickr FLICKR = new Flickr(FLICKR_API_KEY, FLICKR_API_SECRET, new REST());
-
-    public static final String GIPHY_API_KEY = "***REMOVED***";
+    public static final Flickr FLICKR = new Flickr(env.get("FLICKR_API_KEY"), env.get("FLICKR_API_SECRET"), new REST());
 
     public static void main(String[] args) {
         try
         {
-            new Bot().start("***REMOVED***");
+            new Bot().start(env.get("DISCORD_BOT_TOKEN"));
         }
         catch (LoginException | InterruptedException ex)
         {
