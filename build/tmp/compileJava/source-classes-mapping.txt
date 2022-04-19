@@ -55,13 +55,13 @@ com/abatts/inboundbot/command/commands/music/QueueCommand.java
  com.abatts.inboundbot.command.commands.music.QueueCommand
 com/abatts/inboundbot/command/commands/CommandCategory.java
  com.abatts.inboundbot.command.commands.CommandCategory
-com/abatts/inboundbot/database/SQLDatabaseConnection.java
- com.abatts.inboundbot.database.SQLDatabaseConnection
+com/abatts/inboundbot/Bot.java
+ com.abatts.inboundbot.Bot
 com/abatts/inboundbot/command/commands/admin/UnmuteCommand.java
  com.abatts.inboundbot.command.commands.admin.UnmuteCommand
 com/abatts/inboundbot/music/TrackScheduler.java
  com.abatts.inboundbot.music.TrackScheduler
 com/abatts/inboundbot/command/commands/music/NowPlayingCommand.java
  com.abatts.inboundbot.command.commands.music.NowPlayingCommand
-com/abatts/inboundbot/Bot.java
- com.abatts.inboundbot.Bot
+com/abatts/inboundbot/database/SQLDatabaseConnection.java
+ com.abatts.inboundbot.database.SQLDatabaseConnection
