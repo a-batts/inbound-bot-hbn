@@ -2,7 +2,6 @@ package com.abatts.inboundbot.command.commands;
 
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.Command;
-import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.FlickrException;
 import com.flickr4java.flickr.photos.Photo;
 import com.flickr4java.flickr.photos.PhotoList;
@@ -12,13 +11,12 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.awt.*;
-import java.util.List;
 
 public class RandomPandaCommand implements Command {
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
         try {
-            PhotosInterface photos = Bot.FLICKR.getPhotosInterface();
+            PhotosInterface photos = Bot.flickr.getPhotosInterface();
             SearchParameters params = new SearchParameters();
             params.setText("panda zoo");
             params.setTags(new String[]{"zoo", "panda", "bear"});

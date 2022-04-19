@@ -4,6 +4,7 @@ import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.REST;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvException;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -19,17 +20,23 @@ public class Bot {
 
     public static JDA jda;
 
-    public static final Dotenv env = Dotenv.load();
-
-    public static final Flickr FLICKR = new Flickr(env.get("FLICKR_API_KEY"), env.get("FLICKR_API_SECRET"), new REST());
+    public static Flickr flickr;
 
     public static void main(String[] args) {
-        try
-        {
-            new Bot().start(env.get("DISCORD_BOT_TOKEN"));
+        String botToken;
+        try {
+            Dotenv env = Dotenv.load();
+            botToken = env.get("DISCORD_BOT_TOKEN");
+            flickr = new Flickr(env.get("FLICKR_API_KEY"), env.get("FLICKR_API_SECRET"), new REST());
+        } catch (DotenvException e){
+            botToken = System.getenv("DISCORD_BOT_TOKEN");
+            flickr = new Flickr(System.getenv("FLICKR_API_KEY"), System.getenv("FLICKR_API_SECRET"), new REST());
         }
-        catch (LoginException | InterruptedException ex)
-        {
+
+        try {
+            new Bot().start(botToken);
+        }
+        catch (LoginException | InterruptedException ex) {
             ex.printStackTrace();
         }
     }
