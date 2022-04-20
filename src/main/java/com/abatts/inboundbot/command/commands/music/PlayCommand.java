@@ -43,8 +43,8 @@ public class PlayCommand implements Command {
             }
         }
 
-        String [] args = message.getContentRaw().substring(0, Bot.COMMAND_PREFIX.length()).split(" ");
-                String searchTerm = message.getContentRaw().substring(Bot.COMMAND_PREFIX.length() + args[0].length());
+        String [] args = message.getContentRaw().substring(0, Bot.DEFAULT_PREFIX.length()).split(" ");
+                String searchTerm = message.getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + args[0].length());
         if (!isUrl(searchTerm)){
             searchTerm = "ytsearch:" + searchTerm;
         }

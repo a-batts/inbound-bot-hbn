@@ -20,7 +20,7 @@ public class ClearCommand implements Command {
 
         if (PermissionManager.canManageMessages(message.getMember())){
             TextChannel channel = event.getChannel();
-            String unparsedNum = event.getMessage().getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1);
+            String unparsedNum = event.getMessage().getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + name.length() + 1);
             if (unparsedNum.matches("\\d+")){
                 int numToDelete = Integer.parseInt(unparsedNum);
                 if (numToDelete < 2){

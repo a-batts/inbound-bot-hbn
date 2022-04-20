@@ -24,7 +24,7 @@ public class UnmuteCommand implements Command {
         if (PermissionManager.canManageRoles(message.getMember())) {
             List<Member> members = message.getMentionedMembers();
             try{
-                Role muteRole = event.getGuild().getRolesByName(Bot.MUTE_ROLE, false).get(0);
+                Role muteRole = event.getGuild().getRolesByName(Bot.DEFAULT_MUTE_ROLE, false).get(0);
                 for(Member member: members)
                     event.getGuild().removeRoleFromMember(member, muteRole).queue();
 
@@ -35,7 +35,7 @@ public class UnmuteCommand implements Command {
             }
             catch (IndexOutOfBoundsException e) {
                 EmbedBuilder embed = new EmbedBuilder()
-                        .setAuthor("You don't have a role named `\"" + Bot.MUTE_ROLE + "\"`.", null, event.getJDA().getSelfUser().getAvatarUrl())
+                        .setAuthor("You don't have a role named `\"" + Bot.DEFAULT_MUTE_ROLE + "\"`.", null, event.getJDA().getSelfUser().getAvatarUrl())
                         .setColor(Color.red);
                 message.getChannel().sendMessageEmbeds(embed.build()).queue();
             } catch (InsufficientPermissionException e) {

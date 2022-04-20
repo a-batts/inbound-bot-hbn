@@ -14,7 +14,7 @@ public class StabCommand implements Command {
         message.getChannel().sendMessage("\uD83D\uDE10\n" +
                 "<|-\uD83D\uDD2A\n" +
                 "/|\n" +
-                message.getMember().getEffectiveName() + " stabbed " + message.getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1)).queue();
+                message.getMember().getEffectiveName() + " stabbed " + message.getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + name.length() + 1)).queue();
     }
 
     @Override

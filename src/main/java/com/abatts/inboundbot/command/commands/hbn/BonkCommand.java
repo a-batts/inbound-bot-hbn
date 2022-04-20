@@ -18,7 +18,7 @@ public class BonkCommand implements Command {
         if (message.getMentionedUsers().size() > 0)
             bonkString += message.getMentionedMembers().get(0).getEffectiveName();
         else
-            bonkString += message.getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1);
+            bonkString += message.getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + name.length() + 1);
 
         EmbedBuilder bonkEmbed = new EmbedBuilder()
                 .setAuthor("BONK!", null, event.getJDA().getSelfUser().getAvatarUrl())

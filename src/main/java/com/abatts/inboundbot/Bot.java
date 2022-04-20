@@ -15,8 +15,9 @@ import javax.security.auth.login.LoginException;
 public class Bot {
     private static final EventWaiter eventWaiter = new EventWaiter();
 
-    public static String COMMAND_PREFIX = "$";
-    public static String MUTE_ROLE = "muted";
+    public static String DEFAULT_PREFIX = "$";
+    public static String DEFAULT_MUTE_ROLE = "muted";
+    public static String DEFAULT_DJ_ROLE = "dj";
 
     public static JDA jda;
 

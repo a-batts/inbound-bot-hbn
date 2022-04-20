@@ -24,7 +24,7 @@ public class MuteCommand implements Command {
         if (PermissionManager.canManageRoles(message.getMember())) {
             List<Member> members = message.getMentionedMembers();
             try {
-                Role muteRole = event.getGuild().getRolesByName(Bot.MUTE_ROLE, true).get(0);
+                Role muteRole = event.getGuild().getRolesByName(Bot.DEFAULT_MUTE_ROLE, true).get(0);
                 for (Member member : members){
                     if (! member.getUser().isBot())
                         event.getGuild().addRoleToMember(member, muteRole).queue();
@@ -45,7 +45,7 @@ public class MuteCommand implements Command {
                 message.getChannel().sendMessageEmbeds(embed.build()).queue();
             } catch (IndexOutOfBoundsException e) {
                 EmbedBuilder embed = new EmbedBuilder()
-                        .setAuthor("You don't have a role named `\"" + Bot.MUTE_ROLE + "\"`.", null, event.getJDA().getSelfUser().getAvatarUrl())
+                        .setAuthor("You don't have a role named `\"" + Bot.DEFAULT_MUTE_ROLE + "\"`.", null, event.getJDA().getSelfUser().getAvatarUrl())
                         .setColor(Color.red);
                 message.getChannel().sendMessageEmbeds(embed.build()).queue();
             } catch (InsufficientPermissionException e) {

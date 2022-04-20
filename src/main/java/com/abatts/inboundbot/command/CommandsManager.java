@@ -42,7 +42,7 @@ public class CommandsManager extends ListenerAdapter {
     }
 
     public void runCommand(GuildMessageReceivedEvent event){
-        String message = event.getMessage().getContentRaw().substring(Bot.COMMAND_PREFIX.length());
+        String message = event.getMessage().getContentRaw().substring(Bot.DEFAULT_PREFIX.length());
         Command command = getCommand(message.split("\\s+")[0].toLowerCase());
 
         if (command != null){

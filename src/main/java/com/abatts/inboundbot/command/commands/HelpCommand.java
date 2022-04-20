@@ -48,8 +48,8 @@ public class HelpCommand implements Command {
             adminCommands.addField("$" + c.getName(), c.getDescription(), false);
         embeds.add(adminCommands.build());
 
-        if (event.getMessage().getContentRaw().length() > Bot.COMMAND_PREFIX.length() + name.length() + 1){
-            String selHelpCategory = event.getMessage().getContentRaw().substring(Bot.COMMAND_PREFIX.length() + name.length() + 1);
+        if (event.getMessage().getContentRaw().length() > Bot.DEFAULT_PREFIX.length() + name.length() + 1){
+            String selHelpCategory = event.getMessage().getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + name.length() + 1);
             switch (selHelpCategory.toLowerCase()) {
                 case "music" -> {
                     event.getChannel().sendMessageEmbeds(musicCommands.build()).queue();
