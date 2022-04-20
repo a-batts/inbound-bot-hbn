@@ -39,7 +39,11 @@ public class PlayerManager {
         });
     }
 
-    public void loadAndPlay(TextChannel channel, String trackUrl) {
+    public void loadAndPlay(TextChannel channel, String trackUrl){
+        loadAndPlay(channel, trackUrl, false);
+    }
+
+    public void loadAndPlay(TextChannel channel, String trackUrl, boolean loadSilently) {
         GuildTrackManager trackManager = this.getTrackManager(channel.getGuild());
 
         this.audioPlayerManager.loadItemOrdered(trackManager, trackUrl, new AudioLoadResultHandler() {
@@ -47,18 +51,26 @@ public class PlayerManager {
             public void trackLoaded(AudioTrack track) {
                 int pos = trackManager.trackScheduler.queue(track);
 
-                long songLength = track.getInfo().length;
-                EmbedBuilder songEmbed = new EmbedBuilder().setAuthor("Song added to queue", null, channel.getJDA().getSelfUser().getAvatarUrl())
-                        .setTitle(track.getInfo().title, track.getInfo().uri)
-                        .setColor(Color.GREEN)
-                        .addField("Artist", track.getInfo().author, true)
-                        .addField("Length", (songLength/1000)/60 + ":" + String.format("%02d", (songLength/1000)%60) , true)
-                        .setFooter("Currently position " + pos + " in the queue");
+                if(! loadSilently){
+                    long songLength = track.getInfo().length;
+                    EmbedBuilder songEmbed = new EmbedBuilder().setAuthor("Song added to queue", null, channel.getJDA().getSelfUser().getAvatarUrl())
+                            .setTitle(track.getInfo().title, track.getInfo().uri)
+                            .setColor(Color.GREEN)
+                            .addField("Artist", track.getInfo().author, true)
+                            .addField("Length", (songLength/1000)/60 + ":" + String.format("%02d", (songLength/1000)%60) , true)
+                            .setFooter("Currently position " + pos + " in the queue");
 
-                String [] split = track.getInfo().uri.split("v=");
-                songEmbed.setThumbnail("https://img.youtube.com/vi/" + split[1] + "/hqdefault.jpg");
+                    String [] split = track.getInfo().uri.split("v=");
+                    songEmbed.setThumbnail("https://img.youtube.com/vi/" + split[1] + "/hqdefault.jpg");
 
-                channel.sendMessageEmbeds(songEmbed.build()).queue();
+                    channel.sendMessageEmbeds(songEmbed.build()).queue();
+                }
+                else{
+                    EmbedBuilder embed = new EmbedBuilder()
+                            .setAuthor("Added the requested songs to the queue", null, channel.getJDA().getSelfUser().getAvatarUrl())
+                            .setColor(Color.green);
+                    channel.sendMessageEmbeds(embed.build()).queue();
+                }
             }
 
             @Override

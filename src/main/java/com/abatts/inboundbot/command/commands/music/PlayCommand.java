@@ -3,6 +3,7 @@ package com.abatts.inboundbot.command.commands.music;
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.Command;
 import com.abatts.inboundbot.music.PlayerManager;
+import com.abatts.inboundbot.music.SpotifyTrackLoader;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
@@ -44,11 +45,14 @@ public class PlayCommand implements Command {
         }
 
         String [] args = message.getContentRaw().substring(0, Bot.DEFAULT_PREFIX.length()).split(" ");
-                String searchTerm = message.getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + args[0].length());
-        if (!isUrl(searchTerm)){
-            searchTerm = "ytsearch:" + searchTerm;
-        }
+        String searchTerm = message.getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + args[0].length());
 
+        if (searchTerm.contains("spotify.com")){
+            fetchFromSpotify(event, searchTerm);
+            return;
+        }
+        if (!isUrl(searchTerm))
+            searchTerm = "ytsearch:" + searchTerm;
         PlayerManager.getInstance().loadAndPlay(event.getMessage().getTextChannel(), searchTerm);
     }
 
@@ -74,5 +78,21 @@ public class PlayCommand implements Command {
         } catch (URISyntaxException e){
             return false;
         }
+    }
+
+    private void fetchFromSpotify(GuildMessageReceivedEvent event, String url){
+        url = url.replace("https://", "");
+        String id = url.split("/")[2];
+        if (id.contains("?"))
+            id = id.substring(0, id.indexOf("?"));
+
+        System.out.println(id);
+
+        if (url.contains("track"))
+            SpotifyTrackLoader.loadFromTrack(event, id);
+        if (url.contains("album"))
+            SpotifyTrackLoader.loadFromAlbum(event, id);
+        if (url.contains("playlist"))
+            SpotifyTrackLoader.loadFromPlaylist(event, id);
     }
 }
