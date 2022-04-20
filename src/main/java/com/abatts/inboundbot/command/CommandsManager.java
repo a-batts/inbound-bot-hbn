@@ -83,6 +83,8 @@ public class CommandsManager extends ListenerAdapter {
                 commands.add(new QueueCommand());
                 commands.add(new PlayNowCommand());
                 commands.add(new DequeueCommand());
+                //Doesn't work currently
+                //commands.add(new SpotifyCommand());
             }
         }
 

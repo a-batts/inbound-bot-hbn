@@ -51,8 +51,9 @@ public class PlayCommand implements Command {
             fetchFromSpotify(event, searchTerm);
             return;
         }
-        if (!isUrl(searchTerm))
+        if (!isUrl(searchTerm)) {
             searchTerm = "ytsearch:" + searchTerm;
+        }
         PlayerManager.getInstance().loadAndPlay(event.getMessage().getTextChannel(), searchTerm);
     }
 
@@ -85,8 +86,6 @@ public class PlayCommand implements Command {
         String id = url.split("/")[2];
         if (id.contains("?"))
             id = id.substring(0, id.indexOf("?"));
-
-        System.out.println(id);
 
         if (url.contains("track"))
             SpotifyTrackLoader.loadFromTrack(event, id);
