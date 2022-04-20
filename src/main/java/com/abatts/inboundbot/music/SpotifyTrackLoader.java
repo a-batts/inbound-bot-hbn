@@ -46,7 +46,7 @@ public class SpotifyTrackLoader {
                     .loadAndPlay(event.getChannel(), "ytsearch:" + track.getName() + " " + track.getArtists()[0].getName());
         } catch (IOException | ParseException | SpotifyWebApiException e) {
             EmbedBuilder embed = new EmbedBuilder()
-                    .setAuthor(e.getMessage(), null, event.getJDA().getSelfUser().getAvatarUrl())
+                    .setAuthor("Unable to connect to Spotify", null, event.getJDA().getSelfUser().getAvatarUrl())
                     .setColor(Color.red);
             event.getChannel().sendMessageEmbeds(embed.build()).queue();
         }
