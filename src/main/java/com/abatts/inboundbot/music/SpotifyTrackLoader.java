@@ -60,6 +60,10 @@ public class SpotifyTrackLoader {
                 PlayerManager.getInstance()
                         .loadAndPlay(event.getChannel(), "ytsearch:" + track.getName() + " " + track.getArtists()[0].getName(), true);
             }
+            EmbedBuilder embed = new EmbedBuilder()
+                    .setAuthor("Added " + album.getTracks().getItems().length + " requested songs to the queue", null, event.getJDA().getSelfUser().getAvatarUrl())
+                    .setColor(Color.green);
+            event.getChannel().sendMessageEmbeds(embed.build()).queue();
         } catch (IOException | ParseException | SpotifyWebApiException e) {
             EmbedBuilder embed = new EmbedBuilder()
                     .setAuthor("Unable to connect to Spotify", null, event.getJDA().getSelfUser().getAvatarUrl())
@@ -76,6 +80,10 @@ public class SpotifyTrackLoader {
                 PlayerManager.getInstance()
                         .loadAndPlay(event.getChannel(), "ytsearch:" + track.getTrack().getName() + " " + ((Track) track.getTrack()).getArtists()[0].getName(), true);
             }
+            EmbedBuilder embed = new EmbedBuilder()
+                    .setAuthor("Added " + paging.getItems().length +" requested songs to the queue", null, event.getJDA().getSelfUser().getAvatarUrl())
+                    .setColor(Color.green);
+            event.getChannel().sendMessageEmbeds(embed.build()).queue();
         } catch (IOException | ParseException | SpotifyWebApiException e) {
             EmbedBuilder embed = new EmbedBuilder()
                     .setAuthor("Unable to connect to Spotify", null, event.getJDA().getSelfUser().getAvatarUrl())

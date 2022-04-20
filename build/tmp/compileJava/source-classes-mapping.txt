@@ -43,6 +43,9 @@ com/abatts/inboundbot/database/SQLDatabaseConnection.java
  com.abatts.inboundbot.database.SQLDatabaseConnection
 com/abatts/inboundbot/command/Command.java
  com.abatts.inboundbot.command.Command
+com/abatts/inboundbot/command/CommandsManager.java
+ com.abatts.inboundbot.command.CommandsManager
+ com.abatts.inboundbot.command.CommandsManager$1
 com/abatts/inboundbot/command/commands/music/PlayNowCommand.java
  com.abatts.inboundbot.command.commands.music.PlayNowCommand
 com/abatts/inboundbot/command/commands/music/StopCommand.java
@@ -54,9 +57,6 @@ com/abatts/inboundbot/command/commands/music/DequeueCommand.java
  com.abatts.inboundbot.command.commands.music.DequeueCommand
 com/abatts/inboundbot/command/commands/music/SkipCommand.java
  com.abatts.inboundbot.command.commands.music.SkipCommand
-com/abatts/inboundbot/command/CommandsManager.java
- com.abatts.inboundbot.command.CommandsManager
- com.abatts.inboundbot.command.CommandsManager$1
 com/abatts/inboundbot/command/commands/music/QueueCommand.java
  com.abatts.inboundbot.command.commands.music.QueueCommand
 com/abatts/inboundbot/command/commands/music/PlayCommand.java

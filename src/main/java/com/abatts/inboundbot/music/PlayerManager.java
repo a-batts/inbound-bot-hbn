@@ -65,12 +65,6 @@ public class PlayerManager {
 
                     channel.sendMessageEmbeds(songEmbed.build()).queue();
                 }
-                else{
-                    EmbedBuilder embed = new EmbedBuilder()
-                            .setAuthor("Added the requested songs to the queue", null, channel.getJDA().getSelfUser().getAvatarUrl())
-                            .setColor(Color.green);
-                    channel.sendMessageEmbeds(embed.build()).queue();
-                }
             }
 
             @Override
