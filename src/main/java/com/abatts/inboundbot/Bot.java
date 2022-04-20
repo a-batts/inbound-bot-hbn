@@ -1,5 +1,6 @@
 package com.abatts.inboundbot;
 
+import com.abatts.inboundbot.database.SQLDatabaseConnection;
 import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.REST;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
@@ -11,6 +12,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
+import java.sql.SQLException;
 
 public class Bot {
     private static final EventWaiter eventWaiter = new EventWaiter();
@@ -23,7 +25,9 @@ public class Bot {
 
     public static Flickr flickr;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        SQLDatabaseConnection.getConnection();
+
         flickr = new Flickr(getEnvProperty("FLICKR_API_KEY"), getEnvProperty("FLICKR_API_SECRET"), new REST());
         try {
             new Bot().start(getEnvProperty("DISCORD_BOT_TOKEN"));
