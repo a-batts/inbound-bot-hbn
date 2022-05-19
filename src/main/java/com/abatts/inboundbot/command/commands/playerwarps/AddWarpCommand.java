@@ -1,9 +1,8 @@
 package com.abatts.inboundbot.command.commands.playerwarps;
 
+import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.Command;
-import com.abatts.inboundbot.database.SQLDatabaseConnection;
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -34,12 +33,13 @@ public class AddWarpCommand implements Command {
                         .setAuthor("Please follow the command format: pw add <warp name> <optional description>", null, event.getJDA().getSelfUser().getAvatarUrl())
                         .setColor(Color.red);
                 event.getMessage().getChannel().sendMessageEmbeds(embed.build()).queue();
+                return;
             }
 
             if (args.length >= 4)
                 description = String.join(" ", event.getMessage().getContentRaw().substring(message.indexOf(args[3])));
 
-            try (PreparedStatement statement = SQLDatabaseConnection.getConnection().prepareStatement("""
+            try (PreparedStatement statement = Bot.connection.prepareStatement("""
                 SELECT 1 FROM PLAYER_WARPS WHERE name = ? AND guild_id = ?
             """)) {
                 statement.setString(1, args[2]);
@@ -57,7 +57,7 @@ public class AddWarpCommand implements Command {
                 e.printStackTrace();
             }
 
-            try (PreparedStatement statement = SQLDatabaseConnection.getConnection().prepareStatement("""
+            try (PreparedStatement statement = Bot.connection.prepareStatement("""
                 INSERT INTO PLAYER_WARPS(owner_id, guild_id, name, description)
                 VALUES (?, ?, ?, ?)
             """)) {

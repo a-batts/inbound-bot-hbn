@@ -12,6 +12,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 
 import javax.security.auth.login.LoginException;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class Bot {
@@ -25,8 +26,10 @@ public class Bot {
 
     public static Flickr flickr;
 
+    public static Connection connection;
+
     public static void main(String[] args) throws SQLException {
-        SQLDatabaseConnection.getConnection();
+        connection = SQLDatabaseConnection.getConnection();
 
         flickr = new Flickr(getEnvProperty("FLICKR_API_KEY"), getEnvProperty("FLICKR_API_SECRET"), new REST());
         try {

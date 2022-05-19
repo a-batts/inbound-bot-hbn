@@ -3,17 +3,13 @@ package com.abatts.inboundbot.command;
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.commands.*;
 import com.abatts.inboundbot.command.commands.admin.*;
-import com.abatts.inboundbot.command.commands.hbn.BonkCommand;
-import com.abatts.inboundbot.command.commands.hbn.LickCommand;
-import com.abatts.inboundbot.command.commands.hbn.StabCommand;
+import com.abatts.inboundbot.command.commands.hbn.*;
 import com.abatts.inboundbot.command.commands.music.*;
-import com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand;
-import com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand;
+import com.abatts.inboundbot.command.commands.playerwarps.*;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CommandsManager extends ListenerAdapter {
@@ -73,6 +69,7 @@ public class CommandsManager extends ListenerAdapter {
             }
             case HBN -> {
                 commands.add(new AddWarpCommand());
+                commands.add(new DeleteWarpCommand());
                 commands.add(new ListWarpCommand());
                 commands.add(new BonkCommand());
                 commands.add(new LickCommand());
