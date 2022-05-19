@@ -40,9 +40,10 @@ public class AddWarpCommand implements Command {
                 description = String.join(" ", event.getMessage().getContentRaw().substring(message.indexOf(args[3])));
 
             try (PreparedStatement statement = SQLDatabaseConnection.getConnection().prepareStatement("""
-                SELECT 1 FROM PLAYER_WARPS WHERE name = ?
+                SELECT 1 FROM PLAYER_WARPS WHERE name = ? AND guild_id = ?
             """)) {
                 statement.setString(1, args[2]);
+                statement.setString(2, event.getGuild().getId());
                 ResultSet rs = statement.executeQuery();
                 if (rs.next()){
                     EmbedBuilder embed = new EmbedBuilder()

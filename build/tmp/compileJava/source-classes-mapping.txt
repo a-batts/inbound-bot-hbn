@@ -62,14 +62,14 @@ com/abatts/inboundbot/music/TrackScheduler.java
  com.abatts.inboundbot.music.TrackScheduler
 com/abatts/inboundbot/command/commands/CommandCategory.java
  com.abatts.inboundbot.command.commands.CommandCategory
-com/abatts/inboundbot/command/commands/playerwarps/AddWarpCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand
+com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand
 com/abatts/inboundbot/command/commands/HelpCommand.java
  com.abatts.inboundbot.command.commands.HelpCommand
 com/abatts/inboundbot/CommandListener.java
  com.abatts.inboundbot.CommandListener
-com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand
+com/abatts/inboundbot/command/commands/playerwarps/AddWarpCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
