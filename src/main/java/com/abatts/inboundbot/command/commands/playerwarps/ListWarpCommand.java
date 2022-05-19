@@ -5,6 +5,7 @@ import com.abatts.inboundbot.command.Command;
 import com.abatts.inboundbot.database.SQLDatabaseConnection;
 import com.jagrosh.jdautilities.menu.Paginator;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.exceptions.PermissionException;
 
@@ -13,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 public class ListWarpCommand implements Command {
@@ -56,8 +58,12 @@ public class ListWarpCommand implements Command {
             ArrayList<String> playerWarps = new ArrayList<>();
 
             while (rs.next()) {
-                playerWarps.add(rs.getString("name") + " - " + rs.getString("description") + "\n Added by: " + event.getGuild().getMemberById(rs.getString("owner_id")).getAsMention());
+                System.out.println(rs.getString("owner_id"));
+                User user = event.getJDA().retrieveUserById(rs.getString("owner_id")).complete();
+                playerWarps.add(rs.getString("name") + " - " + rs.getString("description") + "\n Added by: " + user.getAsMention());
             }
+
+            Collections.sort(playerWarps);
 
             if (playerWarps.isEmpty()){
                 EmbedBuilder embed = new EmbedBuilder()
