@@ -38,7 +38,7 @@ public class HelpCommand implements Command {
             baseCommands.addField("$" + c.getName(), c.getDescription(), false);
         embeds.add(baseCommands.build());
 
-        EmbedBuilder hbnCommands = new EmbedBuilder().setAuthor("Fun commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
+        EmbedBuilder hbnCommands = new EmbedBuilder().setAuthor("HBN commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
         for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.HBN))
             hbnCommands.addField("$" + c.getName(), c.getDescription(), false);
         embeds.add(hbnCommands.build());
@@ -55,7 +55,7 @@ public class HelpCommand implements Command {
                     event.getChannel().sendMessageEmbeds(musicCommands.build()).queue();
                     return;
                 }
-                case "fun", "misc" -> {
+                case "hbn", "misc" -> {
                     event.getChannel().sendMessageEmbeds(hbnCommands.build()).queue();
                     return;
                 }
