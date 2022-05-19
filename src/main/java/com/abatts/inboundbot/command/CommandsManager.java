@@ -5,9 +5,10 @@ import com.abatts.inboundbot.command.commands.*;
 import com.abatts.inboundbot.command.commands.admin.*;
 import com.abatts.inboundbot.command.commands.hbn.BonkCommand;
 import com.abatts.inboundbot.command.commands.hbn.LickCommand;
-import com.abatts.inboundbot.command.commands.hbn.PwCommand;
 import com.abatts.inboundbot.command.commands.hbn.StabCommand;
 import com.abatts.inboundbot.command.commands.music.*;
+import com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand;
+import com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -35,15 +36,19 @@ public class CommandsManager extends ListenerAdapter {
 
     public Command getCommand(String searchTerm){
         for(Command c: commands){
-            if (c.getName().equals(searchTerm) || Arrays.asList(c.getAliases()).contains(searchTerm))
+            if (searchTerm.startsWith(c.getName()))
                 return c;
+            for (String a: c.getAliases()){
+                if (searchTerm.startsWith(a))
+                    return c;
+            }
         }
         return null;
     }
 
     public void runCommand(GuildMessageReceivedEvent event){
         String message = event.getMessage().getContentRaw().substring(Bot.DEFAULT_PREFIX.length());
-        Command command = getCommand(message.split("\\s+")[0].toLowerCase());
+        Command command = getCommand(message.toLowerCase());
 
         if (command != null){
             event.getChannel().sendTyping().queue();
@@ -68,9 +73,10 @@ public class CommandsManager extends ListenerAdapter {
             }
             case HBN -> {
                 commands.add(new BonkCommand());
-                commands.add(new PwCommand());
                 commands.add(new LickCommand());
                 commands.add(new StabCommand());
+                commands.add(new AddWarpCommand());
+                commands.add(new ListWarpCommand());
             }
             case MUSIC -> {
                 commands.add(new JoinCommand());

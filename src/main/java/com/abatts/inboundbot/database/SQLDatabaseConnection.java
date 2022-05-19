@@ -11,13 +11,14 @@ public class SQLDatabaseConnection {
                 CREATE TABLE IF NOT EXISTS GUILD_SETTINGS
                 (
                     guild_id VARCHAR(20) NOT NULL,
-                    command_prefix VARCHAR(255) DEFAULT '$prefix',
-                    mute_role VARCHAR(255) DEFAULT '$mute',
-                    dj_role VARCHAR(255) DEFAULT '$dj'
+                    command_prefix VARCHAR(255) DEFAULT ?,
+                    mute_role VARCHAR(255) DEFAULT ?,
+                    dj_role VARCHAR(255) DEFAULT ?
                 )
-                """.replace("$prefix", Bot.DEFAULT_PREFIX)
-                .replace("$mute", Bot.DEFAULT_MUTE_ROLE)
-                .replace("$dj", Bot.DEFAULT_DJ_ROLE))) {
+        """)) {
+            statement.setString(1, Bot.DEFAULT_PREFIX);
+            statement.setString(2, Bot.DEFAULT_MUTE_ROLE);
+            statement.setString(3, Bot.DEFAULT_DJ_ROLE);
             statement.execute();
         } catch (SQLException e){
             e.printStackTrace();
