@@ -48,8 +48,8 @@ com/abatts/inboundbot/command/commands/admin/MuteCommand.java
  com.abatts.inboundbot.command.commands.admin.MuteCommand
 com/abatts/inboundbot/command/commands/hbn/BonkCommand.java
  com.abatts.inboundbot.command.commands.hbn.BonkCommand
-com/abatts/inboundbot/CommandListener.java
- com.abatts.inboundbot.CommandListener
+com/abatts/inboundbot/command/commands/admin/UnmuteCommand.java
+ com.abatts.inboundbot.command.commands.admin.UnmuteCommand
 com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand
 com/abatts/inboundbot/command/commands/admin/ClearCommand.java
@@ -66,12 +66,16 @@ com/abatts/inboundbot/command/commands/music/QueueCommand.java
  com.abatts.inboundbot.command.commands.music.QueueCommand
 com/abatts/inboundbot/database/SQLDatabaseConnection.java
  com.abatts.inboundbot.database.SQLDatabaseConnection
-com/abatts/inboundbot/command/commands/HelpCommand.java
- com.abatts.inboundbot.command.commands.HelpCommand
-com/abatts/inboundbot/command/commands/admin/UnmuteCommand.java
- com.abatts.inboundbot.command.commands.admin.UnmuteCommand
+com/abatts/inboundbot/CommandListener.java
+ com.abatts.inboundbot.CommandListener
 com/abatts/inboundbot/command/commands/playerwarps/DeleteWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.DeleteWarpCommand
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
+com/abatts/inboundbot/util/PlayerWarpHelper.java
+ com.abatts.inboundbot.util.PlayerWarpHelper
+com/abatts/inboundbot/command/commands/HelpCommand.java
+ com.abatts.inboundbot.command.commands.HelpCommand
+com/abatts/inboundbot/command/commands/playerwarps/EditWarpCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.EditWarpCommand

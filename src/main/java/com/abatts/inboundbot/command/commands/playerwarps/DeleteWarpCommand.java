@@ -2,8 +2,8 @@ package com.abatts.inboundbot.command.commands.playerwarps;
 
 import com.abatts.inboundbot.Bot;
 import com.abatts.inboundbot.command.Command;
-import com.abatts.inboundbot.database.SQLDatabaseConnection;
 import com.abatts.inboundbot.permission.PermissionManager;
+import com.abatts.inboundbot.util.PlayerWarpHelper;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
@@ -27,19 +27,9 @@ public class DeleteWarpCommand implements Command {
             return;
         }
 
-        try (PreparedStatement statement = Bot.connection.prepareStatement("""
-                SELECT * FROM PLAYER_WARPS WHERE name = ? AND guild_id = ?
-            """)) {
-            statement.setString(1, args[2]);
-            statement.setString(2, event.getGuild().getId());
-            ResultSet rs = statement.executeQuery();
-            if (! rs.next()){
-                EmbedBuilder embed = new EmbedBuilder()
-                        .setAuthor("I couldn't find a player warp in this server with that name", null, event.getJDA().getSelfUser().getAvatarUrl())
-                        .setColor(Color.red);
-                event.getMessage().getChannel().sendMessageEmbeds(embed.build()).queue();
-                return;
-            }
+        try (ResultSet rs = PlayerWarpHelper.dbQueryWarp(args[2], event.getGuild().getId())) {
+            if (! rs.next())
+                PlayerWarpHelper.throwWarpDoesNotExists(event);
             ownerId = rs.getString("owner_id");
             if (PermissionManager.isAdmin(event.getMember()) || ownerId.equals(event.getAuthor().getId())){
                 PreparedStatement statement1 = Bot.connection.prepareStatement("""

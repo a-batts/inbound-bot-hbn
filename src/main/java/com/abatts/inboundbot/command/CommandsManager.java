@@ -70,6 +70,7 @@ public class CommandsManager extends ListenerAdapter {
             case HBN -> {
                 commands.add(new AddWarpCommand());
                 commands.add(new DeleteWarpCommand());
+                commands.add(new EditWarpCommand());
                 commands.add(new ListWarpCommand());
                 commands.add(new BonkCommand());
                 commands.add(new LickCommand());
