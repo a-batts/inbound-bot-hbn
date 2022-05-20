@@ -37,7 +37,7 @@ public class AddWarpCommand implements Command {
             }
 
             if (args.length >= 4)
-                description = String.join(" ", event.getMessage().getContentRaw().substring(message.indexOf(args[3])));
+                description = message.substring(message.indexOf(args[3]));
 
             try (PreparedStatement statement = Bot.connection.prepareStatement("""
                 SELECT 1 FROM PLAYER_WARPS WHERE name = ? AND guild_id = ?

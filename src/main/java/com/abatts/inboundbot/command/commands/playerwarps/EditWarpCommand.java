@@ -34,7 +34,7 @@ public class EditWarpCommand implements Command {
             ownerId = rs.getString("owner_id");
             if (PermissionManager.isAdmin(event.getMember()) || ownerId.equals(event.getAuthor().getId())){
                 if (args.length >= 4)
-                    description = String.join(" ", event.getMessage().getContentRaw().substring(message.indexOf(args[3])));
+                    description = message.substring(message.indexOf(args[3]));
 
                 PreparedStatement statement1 = Bot.connection.prepareStatement("""
                     UPDATE PLAYER_WARPS
