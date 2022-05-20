@@ -28,8 +28,10 @@ public class DeleteWarpCommand implements Command {
         }
 
         try (ResultSet rs = PlayerWarpHelper.dbQueryWarp(args[2], event.getGuild().getId())) {
-            if (! rs.next())
+            if (! rs.next()) {
                 PlayerWarpHelper.throwWarpDoesNotExists(event);
+                return;
+            }
             ownerId = rs.getString("owner_id");
             if (PermissionManager.isAdmin(event.getMember()) || ownerId.equals(event.getAuthor().getId())){
                 PreparedStatement statement1 = Bot.connection.prepareStatement("""

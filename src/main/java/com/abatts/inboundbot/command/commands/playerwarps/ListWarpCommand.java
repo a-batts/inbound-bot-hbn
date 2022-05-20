@@ -30,6 +30,7 @@ public class ListWarpCommand implements Command {
         try(PreparedStatement statement = Bot.connection.prepareStatement("""
             CREATE TABLE IF NOT EXISTS PLAYER_WARPS
             (
+                id INT AUTO_INCREMENT PRIMARY KEY,
                 owner_id VARCHAR(20) NOT NULL,
                 guild_id VARCHAR(20) NOT NULL,
                 name VARCHAR(50) NOT NULL,
@@ -79,7 +80,7 @@ public class ListWarpCommand implements Command {
 
     @Override
     public String getName() {
-        return "pw list";
+        return "pw warps";
     }
 
     @Override

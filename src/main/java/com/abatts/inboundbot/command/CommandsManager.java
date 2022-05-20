@@ -72,6 +72,10 @@ public class CommandsManager extends ListenerAdapter {
                 commands.add(new DeleteWarpCommand());
                 commands.add(new EditWarpCommand());
                 commands.add(new ListWarpCommand());
+                commands.add(new AddWarpListingCommand());
+                commands.add(new RemoveWarpListingCommand());
+                commands.add(new SearchWarpListingsCommand());
+                commands.add(new ViewWarpListingsCommand());
                 commands.add(new BonkCommand());
                 commands.add(new LickCommand());
                 commands.add(new StabCommand());
