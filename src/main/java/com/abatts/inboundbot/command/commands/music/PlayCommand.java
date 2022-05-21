@@ -63,7 +63,7 @@ public class PlayCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Play a specified song or YouTube link \n`play <song name or youtube or spotify url>";
+        return "Play a specified song or YouTube link \n`play <song name or youtube or spotify url>`";
     }
 
     @Override

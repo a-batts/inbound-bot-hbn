@@ -57,6 +57,6 @@ public class WarnCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Warn a specified user or group of users \n`mute <user(s) to warn> <warning message>`";
+        return "Warn a specified user or group of users \n`warn <user(s) to warn> <warning message>`";
     }
 }
