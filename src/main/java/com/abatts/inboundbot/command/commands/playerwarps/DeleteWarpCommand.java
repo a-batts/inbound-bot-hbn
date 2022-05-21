@@ -65,6 +65,6 @@ public class DeleteWarpCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Delete a warp from the player warps list";
+        return "Delete a warp from the player warps list \nFormat: `pw delete <pw name>`";
     }
 }

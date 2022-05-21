@@ -72,6 +72,6 @@ public class RemoveWarpListingCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Unlist an item on a specific player warp";
+        return "Unlist an item on a specific player warp \nFormat: `pw unlist <pw name> <item1, item2, item3,...>`";
     }
 }

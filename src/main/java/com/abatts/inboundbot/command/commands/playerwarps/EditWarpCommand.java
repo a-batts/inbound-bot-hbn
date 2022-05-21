@@ -72,6 +72,6 @@ public class EditWarpCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Edit the description of a specified warp";
+        return "Edit the description of a specified warp \nFormat: `pw edit <pw name> <new optional description>`";
     }
 }

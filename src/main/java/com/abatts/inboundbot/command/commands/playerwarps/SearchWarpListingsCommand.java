@@ -106,6 +106,6 @@ public class SearchWarpListingsCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Search player warp listings for a specified item";
+        return "Search player warp listings for a specified item \nFormat: `pw search <item name>`";
     }
 }
