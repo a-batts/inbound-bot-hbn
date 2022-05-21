@@ -73,6 +73,6 @@ public class AddWarpListingCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "List an item on a specific player warp \nFormat: `pw list <pw name> <item1, item2, item3,...>`";
+        return "List an item on a specific player warp \n`pw list <pw name> <item1, item2, item3,...>`";
     }
 }

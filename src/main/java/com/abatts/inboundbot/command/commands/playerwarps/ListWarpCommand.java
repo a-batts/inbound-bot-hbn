@@ -85,6 +85,6 @@ public class ListWarpCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "View a list of nation player warps";
+        return "View a list of nation player warps \n`pw warps`";
     }
 }

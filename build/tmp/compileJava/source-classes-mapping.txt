@@ -50,8 +50,8 @@ com/abatts/inboundbot/command/commands/hbn/BonkCommand.java
  com.abatts.inboundbot.command.commands.hbn.BonkCommand
 com/abatts/inboundbot/command/commands/admin/UnmuteCommand.java
  com.abatts.inboundbot.command.commands.admin.UnmuteCommand
-com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand
+com/abatts/inboundbot/command/commands/HelpCommand.java
+ com.abatts.inboundbot.command.commands.HelpCommand
 com/abatts/inboundbot/command/commands/admin/ClearCommand.java
  com.abatts.inboundbot.command.commands.admin.ClearCommand
 com/abatts/inboundbot/command/commands/music/SpotifyCommand.java
@@ -66,10 +66,14 @@ com/abatts/inboundbot/command/commands/music/QueueCommand.java
  com.abatts.inboundbot.command.commands.music.QueueCommand
 com/abatts/inboundbot/database/SQLDatabaseConnection.java
  com.abatts.inboundbot.database.SQLDatabaseConnection
-com/abatts/inboundbot/command/commands/playerwarps/AddWarpListingCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.AddWarpListingCommand
+com/abatts/inboundbot/command/commands/CommandCategory.java
+ com.abatts.inboundbot.command.commands.CommandCategory
 com/abatts/inboundbot/command/commands/playerwarps/AddWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand
+com/abatts/inboundbot/command/commands/playerwarps/AddWarpListingCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.AddWarpListingCommand
+com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand
 com/abatts/inboundbot/command/commands/playerwarps/SearchWarpListingsCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.SearchWarpListingsCommand
 com/abatts/inboundbot/command/commands/playerwarps/RemoveWarpListingCommand.java
@@ -79,11 +83,7 @@ com/abatts/inboundbot/command/commands/playerwarps/DeleteWarpCommand.java
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
-com/abatts/inboundbot/command/commands/CommandCategory.java
- com.abatts.inboundbot.command.commands.CommandCategory
 com/abatts/inboundbot/command/commands/playerwarps/ViewWarpListingsCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.ViewWarpListingsCommand
-com/abatts/inboundbot/command/commands/HelpCommand.java
- com.abatts.inboundbot.command.commands.HelpCommand
 com/abatts/inboundbot/command/commands/playerwarps/EditWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.EditWarpCommand

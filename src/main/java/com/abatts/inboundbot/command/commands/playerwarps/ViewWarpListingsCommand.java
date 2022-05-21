@@ -87,6 +87,6 @@ public class ViewWarpListingsCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "View the listings for a specific player warp \nFormat: `pw items <pw name>`";
+        return "View the listings for a specific player warp \n`pw items <pw name>`";
     }
 }
