@@ -71,6 +71,6 @@ public class MuteCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Mute a specified user or group of users \n`mute <user(s) to mute>`";
+        return "Mute a specified user or group of users \n`mute <user(s)>`";
     }
 }

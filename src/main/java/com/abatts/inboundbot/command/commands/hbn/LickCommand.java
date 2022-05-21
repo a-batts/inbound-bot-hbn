@@ -23,6 +23,6 @@ public class LickCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Lick another user \n`lick <user to lick>`";
+        return "Lick another user \n`lick <user>`";
     }
 }

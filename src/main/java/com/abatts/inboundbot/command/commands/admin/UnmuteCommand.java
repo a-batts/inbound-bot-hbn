@@ -61,6 +61,6 @@ public class UnmuteCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Unmute a specified user or group of users \n`mute <user(s) to unmute>`";
+        return "Unmute a specified user or group of users \n`mute <user(s)>`";
     }
 }
