@@ -46,16 +46,16 @@ com/abatts/inboundbot/command/commands/music/LeaveCommand.java
  com.abatts.inboundbot.command.commands.music.LeaveCommand
 com/abatts/inboundbot/command/commands/music/JoinCommand.java
  com.abatts.inboundbot.command.commands.music.JoinCommand
-com/abatts/inboundbot/command/commands/hbn/LickCommand.java
- com.abatts.inboundbot.command.commands.hbn.LickCommand
+com/abatts/inboundbot/command/commands/RandomPandaCommand.java
+ com.abatts.inboundbot.command.commands.RandomPandaCommand
 com/abatts/inboundbot/command/commands/HelpCommand.java
  com.abatts.inboundbot.command.commands.HelpCommand
 com/abatts/inboundbot/command/commands/music/QueueCommand.java
  com.abatts.inboundbot.command.commands.music.QueueCommand
 com/abatts/inboundbot/command/commands/GetAvatarCommand.java
  com.abatts.inboundbot.command.commands.GetAvatarCommand
-com/abatts/inboundbot/command/commands/hbn/StabCommand.java
- com.abatts.inboundbot.command.commands.hbn.StabCommand
+com/abatts/inboundbot/command/commands/music/PlayCommand.java
+ com.abatts.inboundbot.command.commands.music.PlayCommand
 com/abatts/inboundbot/command/commands/music/NowPlayingCommand.java
  com.abatts.inboundbot.command.commands.music.NowPlayingCommand
 com/abatts/inboundbot/command/commands/music/StopCommand.java
@@ -72,16 +72,16 @@ com/abatts/inboundbot/command/commands/music/PlayNowCommand.java
  com.abatts.inboundbot.command.commands.music.PlayNowCommand
 com/abatts/inboundbot/command/commands/hbn/BonkCommand.java
  com.abatts.inboundbot.command.commands.hbn.BonkCommand
+com/abatts/inboundbot/command/commands/admin/MuteCommand.java
+ com.abatts.inboundbot.command.commands.admin.MuteCommand
+com/abatts/inboundbot/command/commands/hbn/StabCommand.java
+ com.abatts.inboundbot.command.commands.hbn.StabCommand
+com/abatts/inboundbot/command/commands/hbn/LickCommand.java
+ com.abatts.inboundbot.command.commands.hbn.LickCommand
+com/abatts/inboundbot/command/commands/admin/UnmuteCommand.java
+ com.abatts.inboundbot.command.commands.admin.UnmuteCommand
 com/abatts/inboundbot/command/commands/admin/WarnCommand.java
  com.abatts.inboundbot.command.commands.admin.WarnCommand
-com/abatts/inboundbot/command/commands/RandomPandaCommand.java
- com.abatts.inboundbot.command.commands.RandomPandaCommand
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
-com/abatts/inboundbot/command/commands/music/PlayCommand.java
- com.abatts.inboundbot.command.commands.music.PlayCommand
-com/abatts/inboundbot/command/commands/admin/UnmuteCommand.java
- com.abatts.inboundbot.command.commands.admin.UnmuteCommand
-com/abatts/inboundbot/command/commands/admin/MuteCommand.java
- com.abatts.inboundbot.command.commands.admin.MuteCommand
