@@ -30,16 +30,12 @@ public class CommandsManager extends ListenerAdapter {
 
     }
 
-    public Command getCommand(String commandQuery){
+    public Command getCommand(String q){
         for(Command c: commands){
-            if (c.getName().length() == commandQuery.length() && commandQuery.equals(c.getName()))
-                return c;
-            else if (commandQuery.startsWith(c.getName() + " "))
+            if ((c.getName().length() == q.length() && q.equals(c.getName())) || q.startsWith(c.getName() + " "))
                 return c;
             for (String a: c.getAliases()){
-                if (a.length() == commandQuery.length() && commandQuery.equals(a))
-                    return c;
-                else if (commandQuery.startsWith(a + " "))
+                if ((a.length() == q.length() && q.equals(a)) || q.startsWith(a + " "))
                     return c;
             }
         }
