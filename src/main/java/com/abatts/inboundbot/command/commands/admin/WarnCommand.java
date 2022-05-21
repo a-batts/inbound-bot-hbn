@@ -21,6 +21,7 @@ public class WarnCommand implements Command {
                 id INT PRIMARY KEY AUTO_INCREMENT,
                 guild_id VARCHAR(20) NOT NULL,
                 user_id VARCHAR(20) NOT NULL,
+                moderator_id VARCHAR(20) NOT NULL,
                 message VARCHAR(200),
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
@@ -83,15 +84,17 @@ public class WarnCommand implements Command {
                 }
 
                 try(PreparedStatement st1 = Bot.connection.prepareStatement("""
-                        INSERT INTO WARNS(guild_id, user_id, message)
-                        VALUES(?, ?, ?)
+                        INSERT INTO WARNS(guild_id, user_id, moderator_id, message)
+                        VALUES(?, ?, ?, ?)
                     """)){
                     st1.setString(1, event.getGuild().getId());
                     st1.setString(2, member.getId());
-                    st1.setString(3, message);
+                    st1.setString(3, event.getAuthor().getId());
+                    st1.setString(4, warnMessage);
                     st1.executeUpdate();
 
-                    member.getUser().openPrivateChannel().flatMap(channel -> channel.sendMessageEmbeds(warning.build())).queue();
+                    if (! member.getUser().isBot())
+                        member.getUser().openPrivateChannel().flatMap(channel -> channel.sendMessageEmbeds(warning.build())).queue();
                     EmbedBuilder embed = new EmbedBuilder()
                             .setAuthor(member.getEffectiveName() + " received a warning", null, event.getJDA().getSelfUser().getAvatarUrl())
                             .setDescription("Reason: " + warnReason

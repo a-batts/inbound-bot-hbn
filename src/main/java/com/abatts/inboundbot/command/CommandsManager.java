@@ -57,10 +57,11 @@ public class CommandsManager extends ListenerAdapter {
 
         switch (category) {
             case ADMIN -> {
-                commands.add(new WarnCommand());
                 commands.add(new ClearCommand());
                 commands.add(new MuteCommand());
                 commands.add(new UnmuteCommand());
+                commands.add(new WarnCommand());
+                commands.add(new ViewWarnsCommand());
             }
             case BASE -> {
                 commands.add(new HelpCommand());
