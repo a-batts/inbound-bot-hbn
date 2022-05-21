@@ -6,8 +6,8 @@ com/abatts/inboundbot/music/TrackScheduler.java
  com.abatts.inboundbot.music.TrackScheduler
 com/abatts/inboundbot/command/commands/GetAvatarCommand.java
  com.abatts.inboundbot.command.commands.GetAvatarCommand
-com/abatts/inboundbot/command/commands/music/PlayNowCommand.java
- com.abatts.inboundbot.command.commands.music.PlayNowCommand
+com/abatts/inboundbot/command/commands/playerwarps/ViewWarpListingsCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.ViewWarpListingsCommand
 com/abatts/inboundbot/command/commands/music/NowPlayingCommand.java
  com.abatts.inboundbot.command.commands.music.NowPlayingCommand
 com/abatts/inboundbot/music/PlayerManager.java
@@ -42,8 +42,8 @@ com/abatts/inboundbot/command/commands/hbn/LickCommand.java
  com.abatts.inboundbot.command.commands.hbn.LickCommand
 com/abatts/inboundbot/command/commands/RandomPandaCommand.java
  com.abatts.inboundbot.command.commands.RandomPandaCommand
-com/abatts/inboundbot/command/commands/music/PlayCommand.java
- com.abatts.inboundbot.command.commands.music.PlayCommand
+com/abatts/inboundbot/command/commands/playerwarps/RemoveWarpListingCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.RemoveWarpListingCommand
 com/abatts/inboundbot/command/commands/admin/MuteCommand.java
  com.abatts.inboundbot.command.commands.admin.MuteCommand
 com/abatts/inboundbot/command/commands/hbn/BonkCommand.java
@@ -80,10 +80,10 @@ com/abatts/inboundbot/CommandListener.java
  com.abatts.inboundbot.CommandListener
 com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand
-com/abatts/inboundbot/command/commands/playerwarps/RemoveWarpListingCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.RemoveWarpListingCommand
+com/abatts/inboundbot/command/commands/music/PlayNowCommand.java
+ com.abatts.inboundbot.command.commands.music.PlayNowCommand
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
-com/abatts/inboundbot/command/commands/playerwarps/ViewWarpListingsCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.ViewWarpListingsCommand
+com/abatts/inboundbot/command/commands/music/PlayCommand.java
+ com.abatts.inboundbot.command.commands.music.PlayCommand

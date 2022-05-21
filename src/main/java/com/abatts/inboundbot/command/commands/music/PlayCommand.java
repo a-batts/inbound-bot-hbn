@@ -7,25 +7,24 @@ import com.abatts.inboundbot.music.SpotifyTrackLoader;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.GuildVoiceState;
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.awt.*;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URL;
 
 @SuppressWarnings("ConstantConditions")
 public class PlayCommand implements Command {
-    private final String name = "play";
 
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
         Member bot = event.getGuild().getSelfMember();
-        Message message = event.getMessage();
+        String message = event.getMessage().getContentRaw();
         GuildVoiceState botState = bot.getVoiceState();
         GuildVoiceState userState = event.getMember().getVoiceState();
 
-        if (message.getContentRaw().split(" ").length == 1){
+        String [] args = message.split(" ");
+
+        if (args.length == 1){
             event.getChannel().sendMessageEmbeds(new EmbedBuilder()
                     .setAuthor("Please specify the song to play", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl())
                     .setColor(Color.RED).build()).queue();
@@ -44,22 +43,22 @@ public class PlayCommand implements Command {
             }
         }
 
-        String [] args = message.getContentRaw().substring(0, Bot.DEFAULT_PREFIX.length()).split(" ");
-        String searchTerm = message.getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + args[0].length());
+        String searchTerm = message.substring(Bot.DEFAULT_PREFIX.length() + args[0].length());
 
-        if (searchTerm.contains("spotify.com")){
-            fetchFromSpotify(event, searchTerm);
-            return;
+        if (isUrl(searchTerm)){
+            if (searchTerm.contains("spotify.com"))
+                fetchFromSpotify(event, searchTerm);
+            else
+                PlayerManager.getInstance().loadAndPlay(event.getMessage().getTextChannel(), searchTerm);
         }
-        if (!isUrl(searchTerm)) {
-            searchTerm = "ytsearch:" + searchTerm;
-        }
-        PlayerManager.getInstance().loadAndPlay(event.getMessage().getTextChannel(), searchTerm);
+        else
+            PlayerManager.getInstance().loadAndPlay(event.getMessage().getTextChannel(), "ytsearch:" + searchTerm);
+
     }
 
     @Override
     public String getName() {
-        return name;
+        return "play";
     }
 
     @Override
@@ -74,9 +73,9 @@ public class PlayCommand implements Command {
 
     private boolean isUrl(String url){
         try {
-            new URI(url);
+            new URL(url).toURI();
             return true;
-        } catch (URISyntaxException e){
+        } catch (Exception e){
             return false;
         }
     }
