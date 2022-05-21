@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class HelpCommand implements Command {
     private final String name = "help";
-    private int pagenum = 1;
 
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
@@ -28,10 +27,11 @@ public class HelpCommand implements Command {
                 .setText("");
 
         List<MessageEmbed> embeds = new ArrayList<>();
-        EmbedBuilder musicCommands = new EmbedBuilder().setAuthor("Music commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
-        for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.MUSIC))
-            musicCommands.addField("$" + c.getName(), c.getDescription(), false);
-        embeds.add(musicCommands.build());
+
+        EmbedBuilder adminCommands = new EmbedBuilder().setAuthor("Admin commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
+        for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.ADMIN))
+            adminCommands.addField("$" + c.getName(), c.getDescription(), false);
+        embeds.add(adminCommands.build());
 
         EmbedBuilder baseCommands = new EmbedBuilder().setAuthor("Basic commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
         for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.BASE))
@@ -43,22 +43,19 @@ public class HelpCommand implements Command {
             hbnCommands.addField("$" + c.getName(), c.getDescription(), false);
         embeds.add(hbnCommands.build());
 
-        EmbedBuilder adminCommands = new EmbedBuilder().setAuthor("Admin commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
-        for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.ADMIN))
-            adminCommands.addField("$" + c.getName(), c.getDescription(), false);
-        embeds.add(adminCommands.build());
+        EmbedBuilder musicCommands = new EmbedBuilder().setAuthor("Music commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
+        for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.MUSIC))
+            musicCommands.addField("$" + c.getName(), c.getDescription(), false);
+        embeds.add(musicCommands.build());
+
+        EmbedBuilder pwCommands = new EmbedBuilder().setAuthor("Player warp commands", null, event.getChannel().getJDA().getSelfUser().getAvatarUrl());
+        for (Command c: CommandsManager.getCommandsByCategory(CommandCategory.PW))
+            pwCommands.addField("$" + c.getName(), c.getDescription(), false);
+        embeds.add(pwCommands.build());
 
         if (event.getMessage().getContentRaw().length() > Bot.DEFAULT_PREFIX.length() + name.length() + 1){
             String selHelpCategory = event.getMessage().getContentRaw().substring(Bot.DEFAULT_PREFIX.length() + name.length() + 1);
             switch (selHelpCategory.toLowerCase()) {
-                case "music" -> {
-                    event.getChannel().sendMessageEmbeds(musicCommands.build()).queue();
-                    return;
-                }
-                case "hbn", "misc" -> {
-                    event.getChannel().sendMessageEmbeds(hbnCommands.build()).queue();
-                    return;
-                }
                 case "admin" -> {
                     event.getChannel().sendMessageEmbeds(adminCommands.build()).queue();
                     return;
@@ -67,10 +64,19 @@ public class HelpCommand implements Command {
                     event.getChannel().sendMessageEmbeds(baseCommands.build()).queue();
                     return;
                 }
+                case "hbn", "misc" -> {
+                    event.getChannel().sendMessageEmbeds(hbnCommands.build()).queue();
+                    return;
+                }
+                case "pw" -> {
+                    event.getChannel().sendMessageEmbeds(pwCommands.build()).queue();
+                    return;
+                }
             }
         }
 
         helpPaginator.setItems(embeds);
+        int pagenum = 1;
         helpPaginator.build().paginate(event.getMessage().getChannel(), pagenum);
     }
 

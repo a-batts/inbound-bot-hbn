@@ -21,8 +21,8 @@ com/abatts/inboundbot/command/commands/admin/WarnCommand.java
  com.abatts.inboundbot.command.commands.admin.WarnCommand
 com/abatts/inboundbot/command/commands/music/SkipCommand.java
  com.abatts.inboundbot.command.commands.music.SkipCommand
-com/abatts/inboundbot/command/commands/CommandCategory.java
- com.abatts.inboundbot.command.commands.CommandCategory
+com/abatts/inboundbot/command/commands/music/PlayCommand.java
+ com.abatts.inboundbot.command.commands.music.PlayCommand
 com/abatts/inboundbot/music/GuildTrackManager.java
  com.abatts.inboundbot.music.GuildTrackManager
 com/abatts/inboundbot/command/commands/music/StopCommand.java
@@ -78,12 +78,12 @@ com/abatts/inboundbot/command/commands/playerwarps/AddWarpListingCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.AddWarpListingCommand
 com/abatts/inboundbot/command/commands/music/PlayNowCommand.java
  com.abatts.inboundbot.command.commands.music.PlayNowCommand
-com/abatts/inboundbot/command/commands/music/PlayCommand.java
- com.abatts.inboundbot.command.commands.music.PlayCommand
 com/abatts/inboundbot/CommandListener.java
  com.abatts.inboundbot.CommandListener
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
+com/abatts/inboundbot/command/commands/CommandCategory.java
+ com.abatts.inboundbot.command.commands.CommandCategory
 com/abatts/inboundbot/command/commands/HelpCommand.java
  com.abatts.inboundbot.command.commands.HelpCommand

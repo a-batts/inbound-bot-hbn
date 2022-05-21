@@ -68,14 +68,6 @@ public class CommandsManager extends ListenerAdapter {
                 commands.add(new RandomPandaCommand());
             }
             case HBN -> {
-                commands.add(new AddWarpCommand());
-                commands.add(new DeleteWarpCommand());
-                commands.add(new EditWarpCommand());
-                commands.add(new ListWarpCommand());
-                commands.add(new AddWarpListingCommand());
-                commands.add(new RemoveWarpListingCommand());
-                commands.add(new SearchWarpListingsCommand());
-                commands.add(new ViewWarpListingsCommand());
                 commands.add(new BonkCommand());
                 commands.add(new LickCommand());
                 commands.add(new StabCommand());
@@ -93,6 +85,16 @@ public class CommandsManager extends ListenerAdapter {
                 commands.add(new DequeueCommand());
                 //Doesn't work currently
                 //commands.add(new SpotifyCommand());
+            }
+            case PW -> {
+                commands.add(new AddWarpCommand());
+                commands.add(new DeleteWarpCommand());
+                commands.add(new EditWarpCommand());
+                commands.add(new ListWarpCommand());
+                commands.add(new AddWarpListingCommand());
+                commands.add(new RemoveWarpListingCommand());
+                commands.add(new SearchWarpListingsCommand());
+                commands.add(new ViewWarpListingsCommand());
             }
         }
 
