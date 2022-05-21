@@ -45,6 +45,6 @@ public class RestartCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Restart playback of the current song";
+        return "Restart playback of the current song \n`restart`";
     }
 }

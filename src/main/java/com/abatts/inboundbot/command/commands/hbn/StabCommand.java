@@ -24,6 +24,6 @@ public class StabCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Stab the typed user";
+        return "Stab another user \n`stab <user to stab>`";
     }
 }

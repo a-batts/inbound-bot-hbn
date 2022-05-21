@@ -53,6 +53,6 @@ public class DequeueCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Remove a specified song from the queue";
+        return "Remove a specified song from the queue \n`dequeue <position in queue>`";
     }
 }

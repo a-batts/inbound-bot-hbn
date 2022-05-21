@@ -52,6 +52,6 @@ public class JoinCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Have the bot join your current voice channel";
+        return "Have the bot join your current voice channel \n`join`";
     }
 }

@@ -43,6 +43,6 @@ public class RandomPandaCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Get a random picture of a panda";
+        return "Get a random picture of a panda \n`panda";
     }
 }

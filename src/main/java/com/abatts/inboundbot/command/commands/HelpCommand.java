@@ -87,6 +87,6 @@ public class HelpCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Get help with the different commands the bot offers";
+        return "Get help with the different commands the bot offers  \n`help <optional help category>`";
     }
 }

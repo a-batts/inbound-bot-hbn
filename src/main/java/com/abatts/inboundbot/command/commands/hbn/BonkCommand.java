@@ -34,6 +34,6 @@ public class BonkCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Bonk the typed user";
+        return "Bonk another user \n`bonk <user to bonk>";
     }
 }

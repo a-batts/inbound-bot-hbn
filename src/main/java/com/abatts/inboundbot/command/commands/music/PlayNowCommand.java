@@ -36,6 +36,6 @@ public class PlayNowCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Play a song immediately instead of adding it to the queue";
+        return "Play a song immediately instead of adding it to the queue \n`playnow <song name or youtube or spotify url>`";
     }
 }

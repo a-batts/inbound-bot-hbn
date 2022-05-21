@@ -11,7 +11,6 @@ import java.awt.*;
 import java.util.List;
 
 public class WarnCommand implements Command {
-    private final String name = "warn";
 
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
@@ -52,11 +51,12 @@ public class WarnCommand implements Command {
 
     @Override
     public String getName() {
+        String name = "warn";
         return name;
     }
 
     @Override
     public String getDescription() {
-        return "Warn a specified user or group of users";
+        return "Warn a specified user or group of users \n`mute <user(s) to warn> <warning message>`";
     }
 }

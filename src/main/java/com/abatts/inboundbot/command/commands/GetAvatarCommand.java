@@ -42,6 +42,6 @@ public class GetAvatarCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Returns the avatar of a mentioned user";
+        return "Returns the avatar of a mentioned user \n`avatar <user>`";
     }
 }

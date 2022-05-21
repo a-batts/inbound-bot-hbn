@@ -15,7 +15,6 @@ import java.awt.*;
 import java.util.List;
 
 public class MuteCommand implements Command {
-    private final String name = "mute";
 
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
@@ -66,11 +65,12 @@ public class MuteCommand implements Command {
 
     @Override
     public String getName() {
+        String name = "mute";
         return name;
     }
 
     @Override
     public String getDescription() {
-        return "Mute a specified user or group of users";
+        return "Mute a specified user or group of users \n`mute <user(s) to mute>`";
     }
 }

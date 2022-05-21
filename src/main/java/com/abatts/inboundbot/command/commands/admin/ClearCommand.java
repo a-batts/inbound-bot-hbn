@@ -57,6 +57,6 @@ public class ClearCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Clear the last x number of chats in the current channel";
+        return "Clear the last x number of chats in the current channel \n`clear <number of messages to clear>`";
     }
 }

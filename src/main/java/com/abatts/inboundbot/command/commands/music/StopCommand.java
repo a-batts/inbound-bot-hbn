@@ -55,6 +55,6 @@ public class StopCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Stop the currently playing music";
+        return "Stop the currently playing music \n`stop`";
     }
 }

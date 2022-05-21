@@ -80,6 +80,6 @@ public class QueueCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "View the list of currently queued songs";
+        return "View the list of currently queued songs \n`queue`";
     }
 }

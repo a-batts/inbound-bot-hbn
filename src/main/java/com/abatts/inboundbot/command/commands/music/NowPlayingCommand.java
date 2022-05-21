@@ -55,6 +55,6 @@ public class NowPlayingCommand implements Command {
 
     @Override
     public String getDescription() {
-        return "Display the song that is currently playing";
+        return "Display the song that is currently playing \n`nowplaying`";
     }
 }

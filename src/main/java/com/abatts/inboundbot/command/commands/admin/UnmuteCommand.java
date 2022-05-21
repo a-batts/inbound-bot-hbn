@@ -15,7 +15,6 @@ import java.awt.*;
 import java.util.List;
 
 public class UnmuteCommand implements Command {
-    private final String name = "unmute";
 
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
@@ -56,11 +55,12 @@ public class UnmuteCommand implements Command {
 
     @Override
     public String getName() {
+        String name = "unmute";
         return name;
     }
 
     @Override
     public String getDescription() {
-        return "Unmute a specified user or group of users";
+        return "Unmute a specified user or group of users \n`mute <user(s) to unmute>`";
     }
 }
