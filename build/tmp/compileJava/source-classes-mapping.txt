@@ -68,8 +68,8 @@ com/abatts/inboundbot/database/SQLDatabaseConnection.java
  com.abatts.inboundbot.database.SQLDatabaseConnection
 com/abatts/inboundbot/command/commands/CommandCategory.java
  com.abatts.inboundbot.command.commands.CommandCategory
-com/abatts/inboundbot/command/commands/playerwarps/AddWarpCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand
+com/abatts/inboundbot/command/commands/playerwarps/EditWarpCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.EditWarpCommand
 com/abatts/inboundbot/command/commands/playerwarps/AddWarpListingCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.AddWarpListingCommand
 com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
@@ -80,10 +80,10 @@ com/abatts/inboundbot/command/commands/playerwarps/RemoveWarpListingCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.RemoveWarpListingCommand
 com/abatts/inboundbot/command/commands/playerwarps/DeleteWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.DeleteWarpCommand
+com/abatts/inboundbot/command/commands/playerwarps/ViewWarpListingsCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.ViewWarpListingsCommand
+com/abatts/inboundbot/command/commands/playerwarps/AddWarpCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
-com/abatts/inboundbot/command/commands/playerwarps/ViewWarpListingsCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.ViewWarpListingsCommand
-com/abatts/inboundbot/command/commands/playerwarps/EditWarpCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.EditWarpCommand
