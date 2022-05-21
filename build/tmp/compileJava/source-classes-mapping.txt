@@ -72,18 +72,18 @@ com/abatts/inboundbot/command/commands/playerwarps/AddWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.AddWarpCommand
 com/abatts/inboundbot/command/commands/playerwarps/EditWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.EditWarpCommand
-com/abatts/inboundbot/command/commands/HelpCommand.java
- com.abatts.inboundbot.command.commands.HelpCommand
-com/abatts/inboundbot/command/commands/playerwarps/AddWarpListingCommand.java
- com.abatts.inboundbot.command.commands.playerwarps.AddWarpListingCommand
-com/abatts/inboundbot/CommandListener.java
- com.abatts.inboundbot.CommandListener
 com/abatts/inboundbot/command/commands/playerwarps/ListWarpCommand.java
  com.abatts.inboundbot.command.commands.playerwarps.ListWarpCommand
+com/abatts/inboundbot/command/commands/playerwarps/AddWarpListingCommand.java
+ com.abatts.inboundbot.command.commands.playerwarps.AddWarpListingCommand
 com/abatts/inboundbot/command/commands/music/PlayNowCommand.java
  com.abatts.inboundbot.command.commands.music.PlayNowCommand
+com/abatts/inboundbot/CommandListener.java
+ com.abatts.inboundbot.CommandListener
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
 com/abatts/inboundbot/command/commands/music/PlayCommand.java
  com.abatts.inboundbot.command.commands.music.PlayCommand
+com/abatts/inboundbot/command/commands/HelpCommand.java
+ com.abatts.inboundbot.command.commands.HelpCommand
