@@ -20,13 +20,16 @@ public class CommandsManager extends ListenerAdapter {
     }
 
     private void addCommands(){
+        //Admin commands
+        commands.addAll(getCommandsByCategory(CommandCategory.ADMIN));
+        //Base commands
         commands.addAll(getCommandsByCategory(CommandCategory.BASE));
         //HBN commands
         commands.addAll(getCommandsByCategory(CommandCategory.HBN));
-        //Admin commands
-        commands.addAll(getCommandsByCategory(CommandCategory.ADMIN));
         //Music commands
         commands.addAll(getCommandsByCategory(CommandCategory.MUSIC));
+        //PW commands
+        commands.addAll(getCommandsByCategory(CommandCategory.PW));
 
     }
 
