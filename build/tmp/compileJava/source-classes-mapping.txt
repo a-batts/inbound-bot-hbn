@@ -76,14 +76,14 @@ com/abatts/inboundbot/command/commands/admin/MuteCommand.java
  com.abatts.inboundbot.command.commands.admin.MuteCommand
 com/abatts/inboundbot/command/commands/hbn/StabCommand.java
  com.abatts.inboundbot.command.commands.hbn.StabCommand
-com/abatts/inboundbot/CommandListener.java
- com.abatts.inboundbot.CommandListener
-com/abatts/inboundbot/command/commands/HelpCommand.java
- com.abatts.inboundbot.command.commands.HelpCommand
-com/abatts/inboundbot/command/commands/admin/ViewWarnsCommand.java
- com.abatts.inboundbot.command.commands.admin.ViewWarnsCommand
 com/abatts/inboundbot/command/commands/admin/WarnCommand.java
  com.abatts.inboundbot.command.commands.admin.WarnCommand
+com/abatts/inboundbot/command/commands/admin/ViewWarnsCommand.java
+ com.abatts.inboundbot.command.commands.admin.ViewWarnsCommand
+com/abatts/inboundbot/CommandListener.java
+ com.abatts.inboundbot.CommandListener
 com/abatts/inboundbot/command/CommandsManager.java
  com.abatts.inboundbot.command.CommandsManager
  com.abatts.inboundbot.command.CommandsManager$1
+com/abatts/inboundbot/command/commands/HelpCommand.java
+ com.abatts.inboundbot.command.commands.HelpCommand

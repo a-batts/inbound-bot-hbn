@@ -42,6 +42,7 @@ public class CommandsManager extends ListenerAdapter {
                     return c;
             }
         }
+
         return null;
     }
 
