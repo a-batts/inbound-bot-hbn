@@ -33,8 +33,6 @@ public class ViewWarnsCommand implements Command {
 
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
-        String message = event.getMessage().getContentRaw();
-
         if (PermissionManager.canWarn(event.getMember())) {
             List<Member> members = event.getMessage().getMentionedMembers();
 
@@ -48,24 +46,25 @@ public class ViewWarnsCommand implements Command {
 
             Member selectedMember = members.get(0);
 
-            try(PreparedStatement st = Bot.connection.prepareStatement("""
+            try(PreparedStatement st = Bot.getConnection().prepareStatement("""
                     SELECT *
                     FROM WARNS
-                    WHERE guild_id = ? AND user_id = ?
+                    WHERE guild_id = ?
                 """)){
                 st.setString(1, event.getGuild().getId());
-                st.setString(2, selectedMember.getId());
                 ResultSet rs = st.executeQuery();
 
                 ArrayList<String> warns = new ArrayList<>();
                 while(rs.next()){
-                    String warnReason = rs.getString("message").equals("") ? "`No reason provided`" : "`" + rs.getString("message") + "`";
-                    Timestamp ts = rs.getTimestamp("created_at");
-                    User moderator = event.getJDA().retrieveUserById(rs.getString("moderator_id")).complete();
-                    warns.add("Warn Case #" + rs.getInt("id") +
-                            "\nWarned: <t:" + ts.getTime() + ">" +
-                            "\nBy: " + moderator.getAsMention() +
-                            "\nReason: " + warnReason);
+                    if (rs.getString("user_id").equals(selectedMember.getId())){
+                        String warnReason = rs.getString("message").equals("") ? "`No reason provided`" : "`" + rs.getString("message") + "`";
+                        Timestamp ts = rs.getTimestamp("created_at");
+                        User moderator = event.getJDA().retrieveUserById(rs.getString("moderator_id")).complete();
+                        warns.add("Warn Case #" + rs.getRow() +
+                                "\nWarned: <t:" + ts.getTime() + ">" +
+                                "\nBy: " + moderator.getAsMention() +
+                                "\nReason: " + warnReason);
+                    }
                 }
 
                 if (warns.isEmpty()){

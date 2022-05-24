@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 public class PlayerWarpHelper {
     public static ResultSet dbQueryWarp(String name, String guild_id) throws SQLException {
-        PreparedStatement statement = Bot.connection.prepareStatement("""
+        PreparedStatement statement = Bot.getConnection().prepareStatement("""
                 SELECT * FROM PLAYER_WARPS WHERE name = ? AND guild_id = ?
         """);
         statement.setString(1, name);

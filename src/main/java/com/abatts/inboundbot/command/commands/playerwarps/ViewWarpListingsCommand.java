@@ -46,7 +46,7 @@ public class ViewWarpListingsCommand implements Command {
                 PlayerWarpHelper.throwWarpDoesNotExists(event);
                 return;
             }
-            try(PreparedStatement statement = Bot.connection.prepareStatement("""
+            try(PreparedStatement statement = Bot.getConnection().prepareStatement("""
                         SELECT *
                         FROM WARP_LISTINGS
                         WHERE warp_id = ?

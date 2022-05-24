@@ -27,7 +27,7 @@ public class SearchWarpListingsCommand implements Command {
             .setEventWaiter(Bot.getEventWaiter())
             .setTimeout(1, TimeUnit.MINUTES);
     public SearchWarpListingsCommand(){
-        try(PreparedStatement statement = Bot.connection.prepareStatement("""
+        try(PreparedStatement statement = Bot.getConnection().prepareStatement("""
             CREATE TABLE IF NOT EXISTS WARP_LISTINGS
             (
                 warp_id INT(20) NOT NULL,
@@ -53,7 +53,7 @@ public class SearchWarpListingsCommand implements Command {
             event.getMessage().getChannel().sendMessageEmbeds(embed.build()).queue();
             return;
         }
-        try(PreparedStatement statement = Bot.connection.prepareStatement("""
+        try(PreparedStatement statement = Bot.getConnection().prepareStatement("""
             SELECT *
             FROM WARP_LISTINGS
             WHERE name LIKE ?
@@ -73,7 +73,7 @@ public class SearchWarpListingsCommand implements Command {
                 return;
             }
 
-            try (PreparedStatement statement1 = Bot.connection.prepareStatement("""
+            try (PreparedStatement statement1 = Bot.getConnection().prepareStatement("""
                 SELECT *
                 FROM PLAYER_WARPS
             """)) {

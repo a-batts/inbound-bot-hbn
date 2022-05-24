@@ -34,7 +34,7 @@ public class DeleteWarpCommand implements Command {
             }
             ownerId = rs.getString("owner_id");
             if (PermissionManager.isAdmin(event.getMember()) || ownerId.equals(event.getAuthor().getId())){
-                PreparedStatement statement1 = Bot.connection.prepareStatement("""
+                PreparedStatement statement1 = Bot.getConnection().prepareStatement("""
                     DELETE FROM PLAYER_WARPS WHERE owner_id = ? AND guild_id = ? AND name = ?
                 """);
                 statement1.setString(1, event.getAuthor().getId());

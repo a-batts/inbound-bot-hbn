@@ -38,7 +38,7 @@ public class EditWarpCommand implements Command {
                 if (args.length >= 4)
                     description = message.substring(message.indexOf(args[3]));
 
-                PreparedStatement statement1 = Bot.connection.prepareStatement("""
+                PreparedStatement statement1 = Bot.getConnection().prepareStatement("""
                     UPDATE PLAYER_WARPS
                     SET description = ?
                     WHERE owner_id = ? AND guild_id = ? AND name = ?

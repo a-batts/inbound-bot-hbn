@@ -63,4 +63,10 @@ public class Bot {
             return System.getenv(key);
         }
     }
+
+    public static Connection getConnection() throws SQLException {
+        if (Bot.connection.isClosed())
+            Bot.connection = SQLDatabaseConnection.getConnection();
+        return Bot.connection;
+    }
 }

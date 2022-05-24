@@ -39,7 +39,7 @@ public class AddWarpCommand implements Command {
             if (args.length >= 4)
                 description = message.substring(message.indexOf(args[3]));
 
-            try (PreparedStatement statement = Bot.connection.prepareStatement("""
+            try (PreparedStatement statement = Bot.getConnection().prepareStatement("""
                 SELECT 1 FROM PLAYER_WARPS WHERE name = ? AND guild_id = ?
             """)) {
                 statement.setString(1, args[2]);
@@ -57,7 +57,7 @@ public class AddWarpCommand implements Command {
                 e.printStackTrace();
             }
 
-            try (PreparedStatement statement = Bot.connection.prepareStatement("""
+            try (PreparedStatement statement = Bot.getConnection().prepareStatement("""
                 INSERT INTO PLAYER_WARPS(owner_id, guild_id, name, description)
                 VALUES (?, ?, ?, ?)
             """)) {

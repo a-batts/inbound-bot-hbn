@@ -27,7 +27,7 @@ public class ListWarpCommand implements Command {
             .setEventWaiter(Bot.getEventWaiter())
             .setTimeout(1, TimeUnit.MINUTES);
     public ListWarpCommand(){
-        try(PreparedStatement statement = Bot.connection.prepareStatement("""
+        try(PreparedStatement statement = Bot.getConnection().prepareStatement("""
             CREATE TABLE IF NOT EXISTS PLAYER_WARPS
             (
                 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -46,7 +46,7 @@ public class ListWarpCommand implements Command {
 
     @Override
     public void runCommand(GuildMessageReceivedEvent event) {
-        try (PreparedStatement statement = Bot.connection.prepareStatement("""
+        try (PreparedStatement statement = Bot.getConnection().prepareStatement("""
             SELECT *
             FROM PLAYER_WARPS
             WHERE guild_id = ?

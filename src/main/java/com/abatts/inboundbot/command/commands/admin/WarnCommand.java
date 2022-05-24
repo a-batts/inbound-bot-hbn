@@ -15,7 +15,7 @@ import java.util.List;
 
 public class WarnCommand implements Command {
     public WarnCommand(){
-        try(PreparedStatement statement = Bot.connection.prepareStatement("""
+        try(PreparedStatement statement = Bot.getConnection().prepareStatement("""
             CREATE TABLE IF NOT EXISTS WARNS
             (
                 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -67,7 +67,7 @@ public class WarnCommand implements Command {
 
             for (Member member : members){
                 int warnsCount = 1;
-                try(PreparedStatement st = Bot.connection.prepareStatement("""
+                try(PreparedStatement st = Bot.getConnection().prepareStatement("""
                         SELECT *
                         FROM WARNS
                         WHERE guild_id = ? AND user_id = ?
@@ -83,7 +83,7 @@ public class WarnCommand implements Command {
                     e.printStackTrace();
                 }
 
-                try(PreparedStatement st1 = Bot.connection.prepareStatement("""
+                try(PreparedStatement st1 = Bot.getConnection().prepareStatement("""
                         INSERT INTO WARNS(guild_id, user_id, moderator_id, message)
                         VALUES(?, ?, ?, ?)
                     """)){

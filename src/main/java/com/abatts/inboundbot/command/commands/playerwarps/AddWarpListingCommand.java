@@ -37,7 +37,7 @@ public class AddWarpListingCommand implements Command {
 
             if (ownerId.equals(event.getAuthor().getId())) {
                 for (String item: items){
-                    try(PreparedStatement statement = Bot.connection.prepareStatement("""
+                    try(PreparedStatement statement = Bot.getConnection().prepareStatement("""
                         INSERT INTO WARP_LISTINGS(warp_id, name)
                         VALUES (?, ?)
                     """)){

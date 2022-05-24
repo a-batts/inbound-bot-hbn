@@ -37,7 +37,7 @@ public class RemoveWarpListingCommand implements Command {
 
             if (ownerId.equals(event.getAuthor().getId())) {
                 for (String item: items){
-                    try(PreparedStatement statement = Bot.connection.prepareStatement("""
+                    try(PreparedStatement statement = Bot.getConnection().prepareStatement("""
                         DELETE FROM WARP_LISTINGS WHERE warp_id = ? AND name = ?
                     """)){
                         statement.setInt(1, rs.getInt("id"));
