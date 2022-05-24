@@ -11,6 +11,7 @@ import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 public class WarnCommand implements Command {
@@ -49,14 +50,16 @@ public class WarnCommand implements Command {
             }
 
             String[] args = message.split(" ");
-            String warnMessage = "";
-            try{
-                warnMessage = message.substring(message.indexOf(args[members.size() + 1]));
-            }
-            catch(IndexOutOfBoundsException ignored){}
+            StringBuilder warnMessageBuilder = new StringBuilder();
+            for (int i = members.size(); i < args.length; i++)
+                warnMessageBuilder.append(args[i]).append(" ");
+
+            String warnMessage = warnMessageBuilder.toString();
 
             if (warnMessage.length() > 199)
                 warnMessage = warnMessage.substring(0, 198);
+
+            warnMessage = warnMessage.trim();
 
             String warnReason = warnMessage.equals("") ? "`No reason provided`" : "`" + warnMessage + "`";
             EmbedBuilder warning = new EmbedBuilder()
