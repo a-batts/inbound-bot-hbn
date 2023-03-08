@@ -44,7 +44,7 @@ public class Bot {
         JDABuilder builder = JDABuilder.createDefault(token).addEventListeners(
                 new CommandListener(),
                 eventWaiter
-        ).setStatus(OnlineStatus.ONLINE).setActivity(Activity.watching("your capitalization"));
+        ).setStatus(OnlineStatus.ONLINE).setActivity(Activity.watching("your capitalization <3"));
 
         jda = builder.build();
     }
